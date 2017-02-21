@@ -3,21 +3,42 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hello World | 石膏实验室</title>
+  <title>给PSVR做开发-Part1 | 石膏实验室</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+  <meta name="description" content="环境
+安装合适版本的Unity
+安装相应版本的UnitySetup-Playstation-4-Support-for-Editor  
+下载各类Unity使用的PS4 Plugins（包括PSVR）
+
+以上都可以从scedev的Unity论坛找到。
+打开一个项目
+File-Build Settings-Switch Platform将项目切换到PS4
+Edit-Project Settings-">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2017/02/20/hello-world/index.html">
+<meta property="og:title" content="给PSVR做开发-Part1">
+<meta property="og:url" content="http://yoursite.com/2016/02/13/ps4dev-tips-01/index.html">
 <meta property="og:site_name" content="石膏实验室">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-03-20T09:31:16.000Z">
+<meta property="og:description" content="环境
+安装合适版本的Unity
+安装相应版本的UnitySetup-Playstation-4-Support-for-Editor  
+下载各类Unity使用的PS4 Plugins（包括PSVR）
+
+以上都可以从scedev的Unity论坛找到。
+打开一个项目
+File-Build Settings-Switch Platform将项目切换到PS4
+Edit-Project Settings-">
+<meta property="og:updated_time" content="2017-02-21T09:09:26.483Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="给PSVR做开发-Part1">
+<meta name="twitter:description" content="环境
+安装合适版本的Unity
+安装相应版本的UnitySetup-Playstation-4-Support-for-Editor  
+下载各类Unity使用的PS4 Plugins（包括PSVR）
+
+以上都可以从scedev的Unity论坛找到。
+打开一个项目
+File-Build Settings-Switch Platform将项目切换到PS4
+Edit-Project Settings-">
   
     <link rel="alternative" href="/atom.xml" title="石膏实验室" type="application/atom+xml">
   
@@ -156,11 +177,11 @@ Quick">
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-ps4dev-tips-01" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/02/20/hello-world/" class="article-date">
-  	<time datetime="2017-02-20T15:31:29.521Z" itemprop="datePublished">2017-02-20</time>
+      <a href="/2016/02/13/ps4dev-tips-01/" class="article-date">
+  	<time datetime="2016-02-13T12:30:33.000Z" itemprop="datePublished">2016-02-13</time>
 </a>
     </div>
   
@@ -173,7 +194,7 @@ Quick">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      给PSVR做开发-Part1
     </h1>
   
 
@@ -181,6 +202,10 @@ Quick">
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PS4/">PS4</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PSVR/">PSVR</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unity/">Unity</a></li></ul>
+	</div>
+
         
 
         <div class="clearfix"></div>
@@ -189,15 +214,30 @@ Quick">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <h2 id="环境">环境</h2><ul>
+<li>安装合适版本的Unity</li>
+<li>安装相应版本的UnitySetup-Playstation-4-Support-for-Editor  </li>
+<li>下载各类Unity使用的PS4 Plugins（包括PSVR）</li>
+</ul>
+<p>以上都可以从scedev的Unity论坛找到。</p>
+<h2 id="打开一个项目">打开一个项目</h2><ul>
+<li>File-Build Settings-Switch Platform将项目切换到PS4</li>
+<li>Edit-Project Settings-Player-Virtual Readlity Supported-添加PlayStation VR</li>
+<li>导入[PS4 Samples]PlayStationVR.unitypackage</li>
+</ul>
+<h2 id="设置头显追踪">设置头显追踪</h2><ul>
+<li>设置Main Camera的Target Eye为Both<br>至此已经可以实现头显的追踪。</li>
+</ul>
+<h2 id="DualShock4/Move_Controller等设备的输入">DualShock4/Move Controller等设备的输入</h2><h3 id="定位追踪">定位追踪</h3><ul>
+<li><p>新建空物体-添加TrackedPlayStationDevices组件</p>
+</li>
+<li><p>组件设置<br>Trackable Devices : 选择需要追踪的设备类型<br>Transform : 追踪物体<br>Light Renderer : 发亮部位<br>Tracking Type : Absolute 绝对/Relative 相对<br>Tracker Usage Type : Default 默认/Optimized For Hmd User 对头显玩家优化  </p>
+</li>
+</ul>
+<h3 id="DualShock4的按键">DualShock4的按键</h3><p>安装了PS4的平台的Editor插件之后(UnitySetup-Playstation-4-Support-for-Editor)，在Unity编辑器中会出现Help-Unity Manual PS4Player，就是PS4的文档。里面有具体的DualShcok4的按键输入说明。<br>DualShock4是兼容Unity自己的Input系统的。</p>
+<h3 id="Move控制器的按键">Move控制器的按键</h3><p>对于Move的按键输入则在文档中没找到，以下是查询论坛后找到的方法：  </p>
+<p>首先引入PS4的名字空间<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">using UnityEngine.PS4;&#10;using UnityEngine.PS4.VR;</span><br></pre></td></tr></table></figure></p>
+<p>然后在Update中编写…<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void Update()&#10;&#123;&#10;    int moveIndex = !isSecondaryController ? 0 : 1;&#10;    var activeButtons = PS4Input.MoveGetButtons(0, moveIndex);&#10;    //&#25203;&#26426;&#10;    bool triggerHolding = (activeButtons &#38; (int)Buttons.Trigger) != 0;&#10;    //&#21449;&#10;    bool crossHolding = (activeButtons &#38; (int)Buttons.Cross) != 0;&#10;    //&#22280;&#10;    bool circleHolding = (activeButtons &#38; (int)Buttons.Circle) != 0;&#10;    //&#19977;&#35282;&#10;    bool triangleHolding = (activeButtons &#38; (int)Buttons.Triangle) != 0;&#10;    //&#26041;&#22359;&#10;    bool squareHolding = (activeButtons &#38; (int)Buttons.Square) != 0;&#10;    //...&#10;&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -207,9 +247,18 @@ Quick">
     
 <nav id="article-nav">
   
+    <a href="/2016/06/08/three-match-game-tips/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          三消游戏开发笔记
+        
+      </div>
+    </a>
   
-    <a href="/2016/06/08/three-match-game-tips/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">三消游戏开发笔记</div>
+  
+    <a href="/2016/02/13/unity-tips-input/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Unity的输入实现</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -238,7 +287,7 @@ Quick">
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="hello-world" data-title="Hello World" data-url="http://yoursite.com/2017/02/20/hello-world/"></div>
+	<div class="ds-thread" data-thread-key="ps4dev-tips-01" data-title="给PSVR做开发-Part1" data-url="http://yoursite.com/2016/02/13/ps4dev-tips-01/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
