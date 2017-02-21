@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Unity Shader笔记 | 石膏实验室</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Unity Shader本文主要针对Surface Shader  
+首先需要确定一点，在Unity5之后的版本中，光照系统采用了新的Enlighten引擎，加入了时髦的GI等特性，随之带来的也是符合PBR(Physically Based Rendering)管线的Standard材质。可以说，如果想要获得最写实的渲染效果，使用Standard材质就可以了，因为Standard几乎就是Unity">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unity Shader笔记">
+<meta property="og:url" content="http://yoursite.com/2016/02/12/unity-tips-shader/index.html">
+<meta property="og:site_name" content="石膏实验室">
+<meta property="og:description" content="Unity Shader本文主要针对Surface Shader  
+首先需要确定一点，在Unity5之后的版本中，光照系统采用了新的Enlighten引擎，加入了时髦的GI等特性，随之带来的也是符合PBR(Physically Based Rendering)管线的Standard材质。可以说，如果想要获得最写实的渲染效果，使用Standard材质就可以了，因为Standard几乎就是Unity">
+<meta property="og:updated_time" content="2016-07-24T08:57:51.726Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Unity Shader笔记">
+<meta name="twitter:description" content="Unity Shader本文主要针对Surface Shader  
+首先需要确定一点，在Unity5之后的版本中，光照系统采用了新的Enlighten引擎，加入了时髦的GI等特性，随之带来的也是符合PBR(Physically Based Rendering)管线的Standard材质。可以说，如果想要获得最写实的渲染效果，使用Standard材质就可以了，因为Standard几乎就是Unity">
+  
+    <link rel="alternative" href="/atom.xml" title="石膏实验室" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/image/avatar.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Gypsum Shen</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">主要是Unity游戏开发</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">归档</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/GypsumLabs/gypsumlabs.github.io" title="github">github</a>
+					        
+								<a class="mail" target="_blank" href="mailto:gypsumlabs@live.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/AR/" style="font-size: 15px;">AR</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Unity/" style="font-size: 20px;">Unity</a> <a href="/tags/树莓派/" style="font-size: 10px;">树莓派</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Gypsum Shen</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="/image/avatar.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Gypsum Shen</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">主要是Unity游戏开发</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">归档</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/GypsumLabs/gypsumlabs.github.io" title="github">github</a>
+			        
+						<a class="mail" target="_blank" href="mailto:gypsumlabs@live.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-unity-tips-shader" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/12/unity-tips-shader/" class="article-date">
+  	<time datetime="2016-02-12T13:23:11.000Z" itemprop="datePublished">2016-02-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Unity Shader笔记
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unity/">Unity</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Unity_Shader">Unity Shader</h1><p><em>本文主要针对Surface Shader</em>  </p>
+<p>首先需要确定一点，在Unity5之后的版本中，光照系统采用了新的Enlighten引擎，加入了时髦的GI等特性，随之带来的也是符合PBR(Physically Based Rendering)管线的Standard材质。可以说，如果想要获得最写实的渲染效果，使用Standard材质就可以了，因为Standard几乎就是Unity可以达到的写实渲染效果的上限，除非是专业的图形工程师，没必要为了这个去折腾Shader。<br>作为一个初级的使用者，写一些Surface Shader的目的应该是为了获得一些特殊的、非真实的、或是取巧的/障眼法的效果。</p>
+<p>待续待续…</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/02/13/unity-tips-input/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Unity的输入实现
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/12/08/unity-tips-coroutine/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Unity奇淫巧技 —— Coroutine协程</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="unity-tips-shader" data-title="Unity Shader笔记" data-url="http://yoursite.com/2016/02/12/unity-tips-shader/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"gypsum"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 Gypsum Shen
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

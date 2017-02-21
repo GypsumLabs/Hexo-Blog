@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Unity涂色AR教程（二） | 石膏实验室</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="更新内容注意啦！本涂色代码在Vuforia5以上版本失效了！  
+
+1.1版的UnityPackage内容更新，下载地址在后面
+
+CameraTargetPatchLighted着色器的光照模型调整
+
+实现了判断整张识别图进入画面再进行拾色的功能，当然这个功能市面上已经有了，我会说一下我实现的思路
+
+说一下前一篇提到的遮挡效果">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unity涂色AR教程（二）">
+<meta property="og:url" content="http://yoursite.com/2015/09/09/colorAR-tutorial-update1/index.html">
+<meta property="og:site_name" content="石膏实验室">
+<meta property="og:description" content="更新内容注意啦！本涂色代码在Vuforia5以上版本失效了！  
+
+1.1版的UnityPackage内容更新，下载地址在后面
+
+CameraTargetPatchLighted着色器的光照模型调整
+
+实现了判断整张识别图进入画面再进行拾色的功能，当然这个功能市面上已经有了，我会说一下我实现的思路
+
+说一下前一篇提到的遮挡效果">
+<meta property="og:image" content="http://yoursite.com/\image\colorAR\1.1-01.jpg">
+<meta property="og:image" content="http://yoursite.com/\image\colorAR\1.1-02.jpg">
+<meta property="og:updated_time" content="2016-07-24T08:18:21.035Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Unity涂色AR教程（二）">
+<meta name="twitter:description" content="更新内容注意啦！本涂色代码在Vuforia5以上版本失效了！  
+
+1.1版的UnityPackage内容更新，下载地址在后面
+
+CameraTargetPatchLighted着色器的光照模型调整
+
+实现了判断整张识别图进入画面再进行拾色的功能，当然这个功能市面上已经有了，我会说一下我实现的思路
+
+说一下前一篇提到的遮挡效果">
+  
+    <link rel="alternative" href="/atom.xml" title="石膏实验室" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/image/avatar.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Gypsum Shen</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">主要是Unity游戏开发</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">归档</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/GypsumLabs/gypsumlabs.github.io" title="github">github</a>
+					        
+								<a class="mail" target="_blank" href="mailto:gypsumlabs@live.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/AR/" style="font-size: 15px;">AR</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Unity/" style="font-size: 20px;">Unity</a> <a href="/tags/树莓派/" style="font-size: 10px;">树莓派</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Gypsum Shen</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="/image/avatar.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Gypsum Shen</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">主要是Unity游戏开发</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">归档</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/GypsumLabs/gypsumlabs.github.io" title="github">github</a>
+			        
+						<a class="mail" target="_blank" href="mailto:gypsumlabs@live.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-colorAR-tutorial-update1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/09/colorAR-tutorial-update1/" class="article-date">
+  	<time datetime="2015-09-09T11:16:30.000Z" itemprop="datePublished">2015-09-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Unity涂色AR教程（二）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AR/">AR</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="更新内容">更新内容</h1><p><em>注意啦！本涂色代码在Vuforia5以上版本失效了！</em>  </p>
+<ul>
+<li><p>1.1版的UnityPackage内容更新，下载地址在后面</p>
+</li>
+<li><p>CameraTargetPatchLighted着色器的光照模型调整</p>
+</li>
+<li><p>实现了<strong>判断整张识别图进入画面再进行拾色</strong>的功能，当然这个功能市面上已经有了，我会说一下我实现的思路</p>
+</li>
+<li><p>说一下前一篇提到的<strong>遮挡</strong>效果</p>
+<a id="more"></a>
+</li>
+</ul>
+<h2 id="下载">下载</h2><blockquote>
+<p><a href="http://pan.baidu.com/s/1i3iy4x3" target="_blank" rel="external">ColorAR-Gypsum-v1.1.unitypackage</a>  </p>
+</blockquote>
+<p>提取码：km0l</p>
+<h2 id="判断整张识别图进入画面后再进行拾色">判断整张识别图进入画面后再进行拾色</h2><p>　　应项目要求，要把DEMO做的好看一点，所以想办法实现了这个功能。旧版中的方法其实不是个好办法，因为即使等待1秒仍有可能没把标记图拍全，导致获取的贴图不全，模型会有一坨黑色。所以我把等待功能的代码都删除了，换成了现在的功能。你可以打开Example中的Scene导出手机查看效果。</p>
+<h3 id="实现的思路">实现的思路</h3><p>　　Unity有一个回调函数OnBecameVisible()会在物体被任意Camera拍摄到时（即使被拍摄到一部分），物体一进入摄像机，就会被调用。另一个OnBecameInvisible()会在移出摄像机时被调用。当然这两个直接用都不能实现<strong>判断物体整个都处在画面中</strong>的效果。我的办法是，因为标记图总是个矩形，在矩形的四个角上放置四个点，判断这四个角是否存在于画面当中，如果是则整个矩形就一定处于画面中，此时再拾取贴图就可以保证贴图的完整了。</p>
+<h4 id="四个角">四个角</h4><p><img src="\image\colorAR\1.1-01.jpg" alt="四个点">   </p>
+<ul>
+<li>因为OnBecameVisible()要起作用必须要物体带有Renderer，所以这四个点不能是空的GameObject，我放的其实是四个Cube，Scale被设置为0所以不可见。不要忘了挂上Check Point脚本。</li>
+</ul>
+<h4 id="ImageTarget的设置">ImageTarget的设置</h4><p><img src="\image\colorAR\1.1-02.jpg" alt="脚本设置">  </p>
+<ul>
+<li>依然是在ImageTarget下挂上ExtendTrackableEvent，代码改了所以参数有变。   </li>
+<li>Check Cover是一块半透明的板，它的尺寸应该完全贴合在标记图上（和QuadCatchUV一样），作用是在玩家调整位置时有一个视觉提示。</li>
+<li>Check Point的数组，把四个角上的Check Point拖进去即可。   </li>
+<li>Other Object需要你把所有原来的AR物体放到一个父物体下面，然后赋值给它。（这个父物体会在没有拾色前隐藏起来）</li>
+</ul>
+<h2 id="遮挡">遮挡</h2><p>　　由于AR的原理，程序总是在最下一层渲染相机画面，而3D引擎渲染出来的物体则叠加在相机画面之上。如此一来，当渲染物体的实际深度在真实物体之下时，会产生很违和的效果。而“遮挡效果”就是为了模拟真实物体和渲染物体的遮挡关系而产生的。   </p>
+<p>　　通过对Shader渲染队列的修改，让Alpha渲染在物体之前以遮蔽一部分的模型，使模型在真实深度下的部分透明不可见，就可以实现这样的效果了。  </p>
+<figure class="highlight puppet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Shader <span class="string">"ColorAR/AlphaMask"</span> &#123;</span><br><span class="line">    SubShader&#123;</span><br><span class="line">        <span class="name">Tags</span> &#123;<span class="string">"Queen"</span>=<span class="string">"Geometry-10"</span>&#125;</span><br><span class="line">        <span class="name">Lighting</span> <span class="name">Off</span></span><br><span class="line">        <span class="name">ZTest</span> <span class="name">LEqual</span></span><br><span class="line">        <span class="name">ZWrite</span> <span class="name">On</span></span><br><span class="line">        <span class="name">ColorMask</span> 0</span><br><span class="line">        Pass&#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="示例">示例</h4><p>待续…</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/09/18/raspberry-tips-01/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          树莓派笔记 - 安装和搭建
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/09/02/colorAR-tutorial/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Unity涂色AR教程（一）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="colorAR-tutorial-update1" data-title="Unity涂色AR教程（二）" data-url="http://yoursite.com/2015/09/09/colorAR-tutorial-update1/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"gypsum"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 Gypsum Shen
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

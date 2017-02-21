@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Unity的输入实现 | 石膏实验室</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Unity自己有Input类，之前没怎么深入研究过，都是Input.GetKeyDown(KeyCode)了事。这次为了实现多种方法多个平台的输入（触屏，键盘，鼠标，手柄），特地拿出这一部分探讨。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unity的输入实现">
+<meta property="og:url" content="http://yoursite.com/2016/02/13/unity-tips-input/index.html">
+<meta property="og:site_name" content="石膏实验室">
+<meta property="og:description" content="Unity自己有Input类，之前没怎么深入研究过，都是Input.GetKeyDown(KeyCode)了事。这次为了实现多种方法多个平台的输入（触屏，键盘，鼠标，手柄），特地拿出这一部分探讨。">
+<meta property="og:updated_time" content="2016-07-24T08:45:59.029Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Unity的输入实现">
+<meta name="twitter:description" content="Unity自己有Input类，之前没怎么深入研究过，都是Input.GetKeyDown(KeyCode)了事。这次为了实现多种方法多个平台的输入（触屏，键盘，鼠标，手柄），特地拿出这一部分探讨。">
+  
+    <link rel="alternative" href="/atom.xml" title="石膏实验室" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/image/avatar.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Gypsum Shen</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">主要是Unity游戏开发</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">归档</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/GypsumLabs/gypsumlabs.github.io" title="github">github</a>
+					        
+								<a class="mail" target="_blank" href="mailto:gypsumlabs@live.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/AR/" style="font-size: 15px;">AR</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Unity/" style="font-size: 20px;">Unity</a> <a href="/tags/树莓派/" style="font-size: 10px;">树莓派</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Gypsum Shen</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="/image/avatar.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Gypsum Shen</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">主要是Unity游戏开发</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">归档</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/GypsumLabs/gypsumlabs.github.io" title="github">github</a>
+			        
+						<a class="mail" target="_blank" href="mailto:gypsumlabs@live.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-unity-tips-input" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/13/unity-tips-input/" class="article-date">
+  	<time datetime="2016-02-13T12:30:33.000Z" itemprop="datePublished">2016-02-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Unity的输入实现
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unity/">Unity</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Unity自己有Input类，之前没怎么深入研究过，都是Input.GetKeyDown(KeyCode)了事。这次为了实现多种方法多个平台的输入（触屏，键盘，鼠标，手柄），特地拿出这一部分探讨。  </p>
+<a id="more"></a>
+<h2 id="鼠标&amp;触摸">鼠标&amp;触摸</h2><p>鼠标与触摸接近，区别在于：  </p>
+<ul>
+<li>鼠标存在Hover状态，即<strong>悬停</strong>的情况，而触摸没有。</li>
+<li>触摸有多点手势。</li>
+<li>触摸输入在设计时对精准度要求需要降低。</li>
+</ul>
+<p>对应的平台无非PC/Mac（鼠标）与Android/IOS/部分Win（触摸）。为便捷实现这两种输入方法，推荐一个插件FingerGesture，兼容鼠标和触摸输入。功能全面，包括点击(Tap)，拖拽(Drag)，双指缩放(Pinch)等都可以简单实现，非常方便。    </p>
+<p>使用方法待续…  </p>
+<h2 id="键盘&amp;手柄">键盘&amp;手柄</h2><p>两者都为按键输入。只考虑键盘输入时，可以简单的使用Input.GetKeyDown(KeyCode)和Input.GetKey(KeyCode)就能完成绝大部分的逻辑。前者会在按键按下的那一帧返回true（再次触发需要弹起后再按下），后者只要键处于按下状态便会一直返回true。<br>如果要使用手柄进行输入，就有必要学习一下Input的定义了。在菜单Edit-Project Setting-Input中可以进行自定义输入。  </p>
+<p>手柄的按键映射和相应键值：（360/XboxOne手柄，每个都亲测过了）  </p>
+<ul>
+<li><strong>A</strong> - joystick button 0</li>
+<li><strong>B</strong> - joystick button 1</li>
+<li><strong>X</strong> - joystick button 2</li>
+<li><strong>Y</strong> - joystick button 3</li>
+<li><strong>LB</strong> - joystick button 4</li>
+<li><strong>RB</strong> - joystick button 5</li>
+<li><strong>Back</strong> -  joystick button 6</li>
+<li><strong>Start</strong> -  joystick button 7</li>
+<li><strong>左摇杆水平</strong> - X axis（最上-1~1最下）</li>
+<li><strong>左摇杆垂直</strong> - Y axis（最左-1~1最右）</li>
+<li><strong>右摇杆水平</strong> - 4th axis（最上-1~1最下）</li>
+<li><strong>右摇杆垂直</strong> - 5th axis（最左-1~1最右）</li>
+<li><strong>方向键水平</strong> - 7th axis（左-1，1右）</li>
+<li><strong>方向键垂直</strong> - 8th axis（上-1，1下）</li>
+<li><strong>LT</strong> - 9th axis（松开0~1完全按下）</li>
+<li><strong>RT</strong> - 10th axis（松开0~1完全按下）</li>
+</ul>
+<h4 id="如何编写代码">如何编写代码</h4><p>使用Input中定义的输入方式，在大部分情况下可以实现一句代码同时兼容手柄与键盘输入。</p>
+<ul>
+<li>Input.GetButtonDown()和Input.GetButtonDown()<br>手柄中所有按键类和键盘输入使用这个方法进行判断。</li>
+<li>Input.GetAxis()和Input.GetAxisRaw()<br>手柄的方向杆类输入使用这个方法返回数值。GetAxisRaw()会忽略Unity对数值的平滑作用。</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/08/three-match-game-tips/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          三消游戏开发笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/02/12/unity-tips-shader/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Unity Shader笔记</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="unity-tips-input" data-title="Unity的输入实现" data-url="http://yoursite.com/2016/02/13/unity-tips-input/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"gypsum"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 Gypsum Shen
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

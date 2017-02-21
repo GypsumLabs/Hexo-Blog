@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Unity涂色AR教程（一） | 石膏实验室</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言注意啦！本涂色代码在Vuforia5以上版本失效了！
+　　上学期在公司实习接触到了AR，使用的Metaio的SDK，这家公司最近悄悄地被苹果收购了。然后可以看到最近各类AR产品出现，都显示着一种趋势。不过说实话，现在的”AR”局限依然很大，现有AR产品大多都是面向低龄的儿童产品，同时也依赖手机设备和固定的标记图。   
+　　近来出现的涂色AR是一个不错的新的玩法。功能依赖Shader和代码一起">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unity涂色AR教程（一）">
+<meta property="og:url" content="http://yoursite.com/2015/09/02/colorAR-tutorial/index.html">
+<meta property="og:site_name" content="石膏实验室">
+<meta property="og:description" content="前言注意啦！本涂色代码在Vuforia5以上版本失效了！
+　　上学期在公司实习接触到了AR，使用的Metaio的SDK，这家公司最近悄悄地被苹果收购了。然后可以看到最近各类AR产品出现，都显示着一种趋势。不过说实话，现在的”AR”局限依然很大，现有AR产品大多都是面向低龄的儿童产品，同时也依赖手机设备和固定的标记图。   
+　　近来出现的涂色AR是一个不错的新的玩法。功能依赖Shader和代码一起">
+<meta property="og:image" content="http://yoursite.com/image/colorar-screenshot.jpg">
+<meta property="og:updated_time" content="2016-07-24T08:18:04.321Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Unity涂色AR教程（一）">
+<meta name="twitter:description" content="前言注意啦！本涂色代码在Vuforia5以上版本失效了！
+　　上学期在公司实习接触到了AR，使用的Metaio的SDK，这家公司最近悄悄地被苹果收购了。然后可以看到最近各类AR产品出现，都显示着一种趋势。不过说实话，现在的”AR”局限依然很大，现有AR产品大多都是面向低龄的儿童产品，同时也依赖手机设备和固定的标记图。   
+　　近来出现的涂色AR是一个不错的新的玩法。功能依赖Shader和代码一起">
+  
+    <link rel="alternative" href="/atom.xml" title="石膏实验室" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/image/avatar.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Gypsum Shen</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">主要是Unity游戏开发</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">归档</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/GypsumLabs/gypsumlabs.github.io" title="github">github</a>
+					        
+								<a class="mail" target="_blank" href="mailto:gypsumlabs@live.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/AR/" style="font-size: 15px;">AR</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Unity/" style="font-size: 20px;">Unity</a> <a href="/tags/树莓派/" style="font-size: 10px;">树莓派</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Gypsum Shen</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="/image/avatar.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Gypsum Shen</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">主要是Unity游戏开发</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">归档</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/GypsumLabs/gypsumlabs.github.io" title="github">github</a>
+			        
+						<a class="mail" target="_blank" href="mailto:gypsumlabs@live.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-colorAR-tutorial" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/02/colorAR-tutorial/" class="article-date">
+  	<time datetime="2015-09-02T06:19:22.000Z" itemprop="datePublished">2015-09-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Unity涂色AR教程（一）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AR/">AR</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言">前言</h1><p><em>注意啦！本涂色代码在Vuforia5以上版本失效了！</em></p>
+<p>　　上学期在公司实习接触到了AR，使用的Metaio的SDK，这家公司最近悄悄地被苹果收购了。然后可以看到最近各类AR产品出现，都显示着一种趋势。不过说实话，现在的”AR”局限依然很大，现有AR产品大多都是面向低龄的儿童产品，同时也依赖手机设备和固定的标记图。   </p>
+<p>　　近来出现的涂色AR是一个不错的新的玩法。功能依赖Shader和代码一起工作，而原本的Shader是一个Unlit的无光照无投影的Vertex Pragment Shader，效果不是很好。昨天晚上照着几篇博文，给这个Shader添加了光照和投影，基本得到了Diffuse的效果。  </p>
+<p><em>这篇不涉及高通AR的基本用法和操作，没有用过高通AR的最好还是先补习一下。</em></p>
+<a id="more"></a>
+<h1 id="实现原理">实现原理</h1><p>AR的基本原理不多说了，主要就是标记图片的识别和追踪。  </p>
+<p><strong>说一下拾取涂色的原理：</strong></p>
+<ul>
+<li>首先识别到图片</li>
+<li>调整相机位置让完整的标记图片出现在相机画面中</li>
+<li>获取相机的画面</li>
+<li>把上面获取的画面作为贴图贴到模型上</li>
+<li>模型上的脚本会利用Shader和代码根据一个贴合标记图透明Quad计算出相机画面中正确的贴图位置</li>
+<li>Duang！</li>
+</ul>
+<p><strong>制作流程中的要点：</strong>  </p>
+<ul>
+<li>先画标记图再做模型，分UV时把标记图贴到模型上根据标记图把UV塞到空白可以涂色处</li>
+<li>标记图的线条不要太细，至少每个物体用粗线条描个边</li>
+<li>物体画偏侧面的角度对UV的拉伸较小，效果会比较好</li>
+<li>涂色推荐水性材料，油画棒等容易遮挡线条可能导致涂色后难以识别</li>
+<li>也可以在周围画一些识别性能强的辅助物体，不做拾色用途但可以增强识别性能</li>
+</ul>
+<h1 id="UnityPackage下载">UnityPackage下载</h1><blockquote>
+<p><a href="http://pan.baidu.com/s/1pJoXy23" title="百度云盘" target="_blank" rel="external">ColorAR-Gypsum.unitypackage</a></p>
+<p>提取码：2ef0</p>
+<p><strong>这是旧版，新版请看后面的文章。</strong></p>
+</blockquote>
+<ul>
+<li>包括了Vuforia4的SDK，如果已经有了则只要导入ColorAR-Assets文件夹就可以了</li>
+<li>里面包含了一个Example场景</li>
+</ul>
+<p><strong>注意：只能运行在移动平台上，相机画面拾取的功能无法直接在Unity内调试，为什么我也不知道。</strong></p>
+<h1 id="开始">开始</h1><p>导入资源包后，你可以打开ColorAR-Assets/Example文件夹中的场景，打包导出到手机平台（IOS/Android）试试效果。    </p>
+<p>一些坑：   </p>
+<ul>
+<li>如果没有投影，请尝试在Quality设置里调整阴影距离等参数</li>
+<li>Android（一般是5.0以上）如果遇到无法安装，在Player Setting的Other Setting中Install Loacation改为Automatic</li>
+</ul>
+<p>标记图为ColorAR-Assets/Example/Cube-Target，你可以用PS等软件打开并随意在方体表面上涂写，效果应该是这样的:   </p>
+<p><img src="/image/colorar-screenshot.jpg" alt="Screen-Shot"></p>
+<h2 id="如何用在自己的项目上">如何用在自己的项目上</h2><p>　　实现原理之前已经写了，相应的Shader为CameraTargetPatchLighted，你需要新建一个Material并使用这个Shader，将你需要使用拾色贴图的模型换上这个Material。相应的脚本为CameraImageAccess，同样也要绑到之前的模型上。    </p>
+<p>　　此外，新建一个Quad，使用CatchUV这个材质，Quad拖到ImageTarget下成为子物体，然后调整Quad的Scale，<strong>使其尺寸完全贴合ImageTarget标记图</strong>。然后把这个Quad拖给之前模型挂上的CameraImageAccess的QuadCatchUV。</p>
+<p>　　之后你需要调用CameraImageAccess的UpdateTexture()才能更新贴图，一般的逻辑自然是在ImageTarget的TrackableEvent中的OnTrackingFound()里调用。如果你不熟悉，可以直接使用我写好的ExtendTrackableEvent，挂在ImageTarget上。这个脚本会在识别到图片之后默认延时1秒钟再拾取相机画面，并有UI指示，原因是手机在移动过程中识别到之后立即拾取画面很容易导致模糊，出来的贴图自然也是模糊的，有延时可以让画面更稳定。延时可以在脚本的Inspector里修改，不要忘记给Loading Ring赋实例，在Prefab文件夹里有我预制的一个Canvas Loading，拖到ImageTarget下，适当缩放，把Canvas Loading子物体的Ring拖给脚本的Loading Ring。这样你的项目应该就可以实现Example中的效果了。   </p>
+<p>　　如果出现了问题，请参考Example场景尝试修复。</p>
+<ul>
+<li>注意：如果你的模型有很多组件且没有Combine，你就需要在每个模型组件（Renderer）都绑上一个CameraImageAccess。这样性能非常差，因为每个组件在更新贴图时都会走一个完整的拾取画面并计算贴图的流程，但是代码是可以优化的，思路可以是：拾取相机画面只运行一次，然后把贴图传递给每个组件（Renderer），再让组件分别自己计算贴图。如果觉得不能实现，还是请在Maya等软件里把没必要拆分的模型都Combine一下吧。</li>
+</ul>
+<h1 id="关于投影：">关于投影：</h1><ul>
+<li>现在的CameraTargetPatch支持光照和阴影了，你可以添加一盏Directional Light并开启阴影</li>
+<li>由于Unity的AR开发中，单位都会比较大，所以你需要在Quality设置里大幅增加阴影距离可能才能会看到投影效果</li>
+</ul>
+<p>使用普通的Plane来接收阴影，会导致面板遮挡实景画面，这不符合AR思路，效果也不好。所以我们需要一种：    </p>
+<blockquote>
+<p>本身是透明的，但是却可以接收阴影的Shader。 </p>
+</blockquote>
+<p>ColorAR-Assets/Shader文件夹中Matte Shadow就是这样一个Shader。</p>
+<h1 id="关于遮挡">关于遮挡</h1><p>遮挡应该是AR中比较重要的一个特性，通过遮挡住模型的一部分可以模拟现实中的遮挡关系。</p>
+<p>需要修改Shader中Queen（渲染队列）实现，这个东西非常适合AR，可以实现很多神奇的效果。</p>
+<p>这次的包中没有包含这个内容，让我再学习下Shader，待续。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/09/09/colorAR-tutorial-update1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Unity涂色AR教程（二）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/08/30/first-post/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">第一篇博客</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="colorAR-tutorial" data-title="Unity涂色AR教程（一）" data-url="http://yoursite.com/2015/09/02/colorAR-tutorial/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"gypsum"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 Gypsum Shen
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>树莓派笔记 - 安装和搭建 | 石膏实验室</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="买了一只树莓派。最终目的是想用来建站，不过Linux之类的还是第一次接触，于是从头学起，在此做一些笔记。
+树莓派型号：Raspberry Pi 2 model B操作的平台：Windows 10">
+<meta property="og:type" content="article">
+<meta property="og:title" content="树莓派笔记 - 安装和搭建">
+<meta property="og:url" content="http://yoursite.com/2015/09/18/raspberry-tips-01/index.html">
+<meta property="og:site_name" content="石膏实验室">
+<meta property="og:description" content="买了一只树莓派。最终目的是想用来建站，不过Linux之类的还是第一次接触，于是从头学起，在此做一些笔记。
+树莓派型号：Raspberry Pi 2 model B操作的平台：Windows 10">
+<meta property="og:image" content="http://yoursite.com/image/raspberry/raspberry-photo.jpg">
+<meta property="og:image" content="http://yoursite.com/image/raspberry/putty-connect.jpg">
+<meta property="og:image" content="http://yoursite.com/image/raspberry/putty-login.jpg">
+<meta property="og:image" content="http://yoursite.com/image/raspberry/vnc-viewer-connect.jpg">
+<meta property="og:image" content="http://yoursite.com/image/raspberry/pi-desktop.jpg">
+<meta property="og:updated_time" content="2015-12-28T08:32:03.220Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="树莓派笔记 - 安装和搭建">
+<meta name="twitter:description" content="买了一只树莓派。最终目的是想用来建站，不过Linux之类的还是第一次接触，于是从头学起，在此做一些笔记。
+树莓派型号：Raspberry Pi 2 model B操作的平台：Windows 10">
+  
+    <link rel="alternative" href="/atom.xml" title="石膏实验室" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/image/avatar.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Gypsum Shen</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">主要是Unity游戏开发</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">归档</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/GypsumLabs/gypsumlabs.github.io" title="github">github</a>
+					        
+								<a class="mail" target="_blank" href="mailto:gypsumlabs@live.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/AR/" style="font-size: 15px;">AR</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Unity/" style="font-size: 20px;">Unity</a> <a href="/tags/树莓派/" style="font-size: 10px;">树莓派</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Gypsum Shen</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="/image/avatar.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Gypsum Shen</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">主要是Unity游戏开发</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">归档</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/GypsumLabs/gypsumlabs.github.io" title="github">github</a>
+			        
+						<a class="mail" target="_blank" href="mailto:gypsumlabs@live.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-raspberry-tips-01" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/18/raspberry-tips-01/" class="article-date">
+  	<time datetime="2015-09-18T05:53:15.000Z" itemprop="datePublished">2015-09-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      树莓派笔记 - 安装和搭建
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/树莓派/">树莓派</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/image/raspberry/raspberry-photo.jpg" alt="raspberry"><br>买了一只树莓派。<br>最终目的是想用来建站，不过Linux之类的还是第一次接触，于是从头学起，在此做一些笔记。</p>
+<p>树莓派型号：Raspberry Pi 2 model B<br>操作的平台：Windows 10<br><a id="more"></a></p>
+<h1 id="安装">安装</h1><p>在<a href="https://www.raspberrypi.org" target="_blank" rel="external">树莓派官网</a>可以下载到最新的Raspbian系统，使用<a href="">Win32DiskImager</a>把系统刷入TF卡中。把TF卡装进树莓派后便可以接通电源启动了。  </p>
+<h1 id="连接到树莓派">连接到树莓派</h1><p>使用<a href="">puTTY</a>以ssh方式连接到树莓派。先在路由器设置页中获取到树莓派的IP地址，然后打开puTTY输入IP后连接。<em>可以在路由器中设置一个静态IP给树莓派，之后就不用再查找了</em>  </p>
+<p><img src="/image/raspberry/putty-connect.jpg" alt="putty-connect">  </p>
+<blockquote>
+<p>默认设置即可，修改为树莓派的IP后连接到树莓派。  </p>
+</blockquote>
+<p><strong>接着登陆树莓派</strong>  </p>
+<p><img src="/image/raspberry/putty-login.jpg" alt="putty-login">  </p>
+<blockquote>
+<p>默认用户名：pi<br>默认密码：raspberry  </p>
+</blockquote>
+<p>输入密码时无显示，只管输入就行了。成功连接后就可以跑命令行了。</p>
+<h1 id="使用VNC远程桌面">使用VNC远程桌面</h1><p>首先安装<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> install tightvncserver</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>Tips :<br>sudo 是用管理员权限执行的意思。<br>apt-get install [程序名] 用来下载并安装程序。  </p>
+</blockquote>
+<p>设置VNC密码<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vncpasswd</span><br></pre></td></tr></table></figure></p>
+<h3 id="设置VNC开机启动">设置VNC开机启动</h3><p>在/etc/init.d/中创建一个文件<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano <span class="regexp">/etc/i</span>nit.d<span class="regexp">/tightvncserver</span></span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>Tips :<br>改写这个文件同样使用 nano 这个命令。</p>
+</blockquote>
+<p>内容为<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">### <span class="operator"><span class="keyword">BEGIN</span> INIT INFO</span><br><span class="line"># Provides:          tightvncserver</span><br><span class="line"># <span class="keyword">Required</span>-<span class="keyword">Start</span>:    $local_fs</span><br><span class="line"># <span class="keyword">Required</span>-<span class="keyword">Stop</span>:     $local_fs</span><br><span class="line"># <span class="keyword">Default</span>-<span class="keyword">Start</span>:     <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span></span><br><span class="line"># <span class="keyword">Default</span>-<span class="keyword">Stop</span>:      <span class="number">0</span> <span class="number">1</span> <span class="number">6</span></span><br><span class="line"># <span class="keyword">Short</span>-Description: <span class="keyword">Start</span>/<span class="keyword">stop</span> tightvncserver</span><br><span class="line">### <span class="keyword">END</span> INIT INFO</span><br><span class="line"> </span><br><span class="line"># More details see:</span><br><span class="line"># <span class="keyword">http</span>://www.penguintutor.com/linux/tightvnc</span><br><span class="line"> </span><br><span class="line">### Customize this entry</span><br><span class="line"># <span class="keyword">Set</span> the <span class="keyword">USER</span> <span class="keyword">variable</span> <span class="keyword">to</span> the <span class="keyword">name</span> <span class="keyword">of</span> the <span class="keyword">user</span> <span class="keyword">to</span> <span class="keyword">start</span> tightvncserver <span class="keyword">under</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">USER</span>=<span class="string">'pi'</span></span><br><span class="line">### <span class="keyword">End</span> customization <span class="keyword">required</span></span><br><span class="line"> </span><br><span class="line">eval cd ~$<span class="keyword">USER</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">case</span> <span class="string">"$1"</span> <span class="keyword">in</span></span><br><span class="line">  <span class="keyword">start</span>)</span><br><span class="line">    # 启动命令行。此处自定义分辨率、控制台号码或其它参数。</span><br><span class="line">    su $<span class="keyword">USER</span> -<span class="keyword">c</span> <span class="string">'/usr/bin/tightvncserver -depth 16 -geometry 800x600 :1'</span></span><br><span class="line">    echo <span class="string">"Starting TightVNC server for $USER "</span></span><br><span class="line">    ;</span>;</span><br><span class="line">  <span class="operator"><span class="keyword">stop</span>)</span><br><span class="line">    # 终止命令行。此处控制台号码与启动一致。</span><br><span class="line">    su $<span class="keyword">USER</span> -<span class="keyword">c</span> <span class="string">'/usr/bin/tightvncserver -kill :1'</span></span><br><span class="line">    echo <span class="string">"Tightvncserver stopped"</span></span><br><span class="line">    ;</span>;</span><br><span class="line">  *)</span><br><span class="line">    echo "Usage: /etc/init.d/tightvncserver &#123;<span class="operator"><span class="keyword">start</span>|<span class="keyword">stop</span>&#125;<span class="string">"</span><br><span class="line">    exit 1</span><br><span class="line">    ;;</span><br><span class="line">esac</span><br><span class="line">exit 0</span></span></span><br></pre></td></tr></table></figure></p>
+<p>之后按Ctrl+X，输入Y保存文件。  </p>
+<p>然后给tightvncserver文件加执行权限，并更新开机启动列表<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 755 /etc/init.d/tightvncserver</span><br><span class="line">sudo <span class="operator"><span class="keyword">update</span>-rc.<span class="keyword">d</span> tightvncserver <span class="keyword">defaults</span></span></span><br></pre></td></tr></table></figure></p>
+<h3 id="手动控制VNC">手动控制VNC</h3><p>启动<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tightvncserver -geometry <span class="number">800</span>x600 :<span class="number">1</span></span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>Tips :<br>如你所见你可以改变远程桌面的分辨率，在前面的自启动文档里也可以修改。端口号请使用1，并且不要问为什么。</p>
+</blockquote>
+<p>关闭<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tightvncserver -kill :<span class="number">1</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="连接到VNC桌面">连接到VNC桌面</h1><p>使用<a href="">VNC Viewer</a>连接到远程桌面。</p>
+<p><img src="/image/raspberry/vnc-viewer-connect.jpg" alt="vncviewer"><br>登录地址输入<strong>IP地址:控制台号码</strong><br>根据上面的自启动文件，控制台号码应该为1。  </p>
+<p><img src="/image/raspberry/pi-desktop.jpg" alt="desktop"><br>如果之前没出现什么问题，此时就可以看到树莓派的桌面了~</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/10/18/git-with-unity/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          使用Git对Unity项目进行版本控制
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/09/09/colorAR-tutorial-update1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Unity涂色AR教程（二）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="raspberry-tips-01" data-title="树莓派笔记 - 安装和搭建" data-url="http://yoursite.com/2015/09/18/raspberry-tips-01/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"gypsum"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 Gypsum Shen
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Unity奇淫巧技 —— Coroutine协程 | 石膏实验室</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="协程?　　当然我早就听说了协程这个东西，可能你也听过。但是我和之前学C#学delegate时一样，一开始没有很好的理解这个东西，文章看了一些，还是Get不到它正确的应用场景，而一直不愿意去用。其实很多时候就是要去放开了试才能真的理解这些技巧的意义，其瓶颈不过就是一层纸，这次终于把这层纸捅破罢了。  
+　　协程（Coroutine）不同于线程（Thread），他目标解决的不是线程阻塞一类的问题。以我">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unity奇淫巧技 —— Coroutine协程">
+<meta property="og:url" content="http://yoursite.com/2015/12/08/unity-tips-coroutine/index.html">
+<meta property="og:site_name" content="石膏实验室">
+<meta property="og:description" content="协程?　　当然我早就听说了协程这个东西，可能你也听过。但是我和之前学C#学delegate时一样，一开始没有很好的理解这个东西，文章看了一些，还是Get不到它正确的应用场景，而一直不愿意去用。其实很多时候就是要去放开了试才能真的理解这些技巧的意义，其瓶颈不过就是一层纸，这次终于把这层纸捅破罢了。  
+　　协程（Coroutine）不同于线程（Thread），他目标解决的不是线程阻塞一类的问题。以我">
+<meta property="og:updated_time" content="2016-07-24T08:44:20.921Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Unity奇淫巧技 —— Coroutine协程">
+<meta name="twitter:description" content="协程?　　当然我早就听说了协程这个东西，可能你也听过。但是我和之前学C#学delegate时一样，一开始没有很好的理解这个东西，文章看了一些，还是Get不到它正确的应用场景，而一直不愿意去用。其实很多时候就是要去放开了试才能真的理解这些技巧的意义，其瓶颈不过就是一层纸，这次终于把这层纸捅破罢了。  
+　　协程（Coroutine）不同于线程（Thread），他目标解决的不是线程阻塞一类的问题。以我">
+  
+    <link rel="alternative" href="/atom.xml" title="石膏实验室" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/image/avatar.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Gypsum Shen</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">主要是Unity游戏开发</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">归档</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/GypsumLabs/gypsumlabs.github.io" title="github">github</a>
+					        
+								<a class="mail" target="_blank" href="mailto:gypsumlabs@live.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/AR/" style="font-size: 15px;">AR</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Unity/" style="font-size: 20px;">Unity</a> <a href="/tags/树莓派/" style="font-size: 10px;">树莓派</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Gypsum Shen</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="/image/avatar.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Gypsum Shen</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">主要是Unity游戏开发</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">归档</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/GypsumLabs/gypsumlabs.github.io" title="github">github</a>
+			        
+						<a class="mail" target="_blank" href="mailto:gypsumlabs@live.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-unity-tips-coroutine" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/08/unity-tips-coroutine/" class="article-date">
+  	<time datetime="2015-12-08T02:03:50.000Z" itemprop="datePublished">2015-12-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Unity奇淫巧技 —— Coroutine协程
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unity/">Unity</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="协程?">协程?</h1><p>　　当然我早就听说了协程这个东西，可能你也听过。但是我和之前学C#学delegate时一样，一开始没有很好的理解这个东西，文章看了一些，还是Get不到它正确的应用场景，而一直不愿意去用。其实很多时候就是要去放开了试才能真的理解这些技巧的意义，其瓶颈不过就是一层纸，这次终于把这层纸捅破罢了。  </p>
+<p>　　协程（Coroutine）不同于线程（Thread），他目标解决的不是线程阻塞一类的问题。以我个人的理解，他主要解决<strong>有某些必须在游戏循环中运行的代码，而你又不想把他写到Update()中</strong>的情况。  </p>
+<p>　　游戏与一般应用程序的区别在于，一般应用程序是<strong>事件驱动</strong>的，而游戏则拥有<strong>游戏循环</strong>这一特性，在Unity中体现为MonoBehaviour的Update()方法。游戏中自然也会有”事件”，基本都可以写在Update()中，但是由于游戏循环的存在，Update()会风雨无阻的在每一帧调用，为了让代码适时的执行，一般都会设置几个bool或int/float来控制Update()中的代码。  </p>
+<p>　　这时你会发现，如果你的Update()中有太多这样的代码时，代码的可读性会越来越糟。  </p>
+<a id="more"></a>
+<h1 id="解决问题">解决问题</h1><p>　　来看一个比较典型的情况：<strong>一个事件会在游戏过程中被触发，触发后执行一些动作A，等待5秒后，执行一些动作B，事件结束</strong>。  </p>
+<p>　　我原来会这么写：  </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> SimpleEvent : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">bool</span> event_Start;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">float</span> event_Timer;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">bool</span> A_Done;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">bool</span> B_Done;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//打开事件开关，同时重置该事件的计时器和A，B动作的标记</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">StartEvent</span><span class="params">()</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        event_Start = <span class="literal">true</span>;</span><br><span class="line">        event_Timer = <span class="number">0</span>;</span><br><span class="line">        A_Done = <span class="literal">false</span>;</span><br><span class="line">        B_Done = <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span><span class="params">()</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(event_Start)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(!A_Done)</span><br><span class="line">            &#123;</span><br><span class="line">                DoSomething_A();</span><br><span class="line">                A_Done = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(event_Timer&lt;<span class="number">5</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                event_Timer += Time.deltaTime;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(!B_Done)</span><br><span class="line">                &#123;</span><br><span class="line">                    DoSomething_B();</span><br><span class="line">                    B_Done = <span class="literal">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="comment">//关掉事件开关，结束事件</span></span><br><span class="line">                event_Start = <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>　　需要触发事件时，我只要调用一下这个脚本的StartEvent()即可，看起来也没有什么问题。  </p>
+<p>　　可是如果一个Update()中有很多个这样的事件，又或是一个事件中有很多等待用的计时器，而每多一个计时器，你的事件逻辑就又多了一个if( )else( )嵌套。如此一来，Update()会越来越难以阅读。  </p>
+<p>　　所以你知道的，协程该出现了：  </p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">SimpleEvent</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function">IEnumerator <span class="title">Event</span>(<span class="params"></span>)</span><br><span class="line">    </span>&#123;</span><br><span class="line">        DoSomething_A();</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">yield</span> return new <span class="title">WaitForSeconds</span>(<span class="params"><span class="number">5</span></span>)</span>;</span><br><span class="line"></span><br><span class="line">        DoSomething_B();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>触发这个事件我只要：  </p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">StartCoroutine<span class="list">(<span class="keyword">Event</span><span class="list">()</span>)</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>　　IEnumerator是C#的一种迭代器，协程实现的具体原理可以找到很多文章分析。但是就算没有彻底理解其原理也没有关系，只要会应用就可以。总之，协程以 <em>IEnumerator 协程名(形参){ }</em> 申明，和一般的方法申明类似。  </p>
+<p>　　协程中必须要有 <em>yield return  值</em> 这样的返回值，例子中的 <em>yield return new WaitForSeconds(5)</em> 就表示<strong>等待5秒钟</strong>。  </p>
+<p>　　一句代码就能完成等待功能，且不需要计时器变量和if()else()判断！这已经很神奇了，当然协程不止于此，他还有另外一个重要的特性:  </p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">yield</span> <span class="keyword">return</span> <span class="keyword">null</span>;</span><br></pre></td></tr></table></figure>
+<p>　　这个表示<strong>等待下一帧</strong>。可能一下子无法理解这个等待的意义，回头再看一下我对协程的理解：他可以解决<strong>有某些必须在游戏循环中运行的代码，而你又不想把他写到 <em>Update()</em> 中</strong>的情况。    </p>
+<p>　　所以说我认为协程应该可以替代Update()，让代码不写在Update()中又能跑在游戏循环中的能力。如何实现？请看：  </p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">IEnumerator <span class="title">CoroutineUpdate</span>(<span class="params"></span>)</span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="keyword">true</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//<span class="doctag">TODO:</span>你的游戏更新</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">yield</span> <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>　　while(true){ }是一个无限循环，在循环结尾处的yield return null;则意味着这个无限循环的代码，每执行一次则会等到下一帧再继续循环，这不就是一个Update()嘛！  </p>
+<p>　　他有一个相比Update()额外的好处，就是你可以在想结束循环时，break即可。或者直接使用for进行有限次的循环，很灵活。  </p>
+<h3 id="其他值得一提的事">其他值得一提的事</h3><p>启动一个协程的方法为：  </p>
+<ul>
+<li>StartCoroutine( 协程() , 参数 ) ; </li>
+<li>StartCoroutine( “协程名” , 参数 ) ; //以字符串为参数</li>
+</ul>
+<p>停止协程的方法：</p>
+<ul>
+<li><p>StopAllCoroutine();  停止所有协程，使用上面第一个重载运行的协程只能以这种方式停止。  </p>
+</li>
+<li><p>StopCoroutine(“协程名”);  停止单个协程只能用这个，且只能停止同样以字符串为参数启动的协程。  </p>
+</li>
+</ul>
+<p>　　另外，协程中yield return可以使用其他协程做为返回值，比如<em>yield return OtherCoroutine();</em>  作用就是等待OtherCoroutine()的代码全部运行完毕后继续运行，这个特性也是极其好用的，可以实现很多不限时等待的功能。</p>
+<h1 id="以上">以上</h1><p>　　协程是一种更加灵活的Update()替代品，避免过多的游戏逻辑堆砌在一个Update()中导致最终的可读性下降。同时还提供了yield return new WaitForSeconds(float)这样方便的等待功能，不需要在外部申明一堆计时器变量然后在逻辑中使用if()else()判断时间这样繁琐的流程。<br>　　另外，协程也存在一些问题，就是启用多个协程之后，务必注意代码执行顺序的问题，这个问题在以前可以使用Update()和LateUpdate()缓解，但是在协程里就不太好解决，所以尽量避免多个协程之间的耦合，在一个协程中完成一个独立的功能是一个良好的思路。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/02/12/unity-tips-shader/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Unity Shader笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/10/18/git-with-unity/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">使用Git对Unity项目进行版本控制</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="unity-tips-coroutine" data-title="Unity奇淫巧技 —— Coroutine协程" data-url="http://yoursite.com/2015/12/08/unity-tips-coroutine/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"gypsum"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 Gypsum Shen
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
