@@ -16,7 +16,7 @@ File-Build Settings-Switch Platform将项目切换到PS4
 Edit-Project Settings-">
 <meta property="og:type" content="article">
 <meta property="og:title" content="给PSVR做开发-Part1">
-<meta property="og:url" content="http://yoursite.com/2016/02/13/ps4dev-tips-01/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/03/03/ps4dev-tips-01/index.html">
 <meta property="og:site_name" content="石膏实验室">
 <meta property="og:description" content="环境
 安装合适版本的Unity
@@ -27,7 +27,7 @@ Edit-Project Settings-">
 打开一个项目
 File-Build Settings-Switch Platform将项目切换到PS4
 Edit-Project Settings-">
-<meta property="og:updated_time" content="2017-02-21T10:51:14.000Z">
+<meta property="og:updated_time" content="2017-03-03T02:52:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="给PSVR做开发-Part1">
 <meta name="twitter:description" content="环境
@@ -180,8 +180,8 @@ Edit-Project Settings-">
       <div class="body-wrap"><article id="post-ps4dev-tips-01" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/02/13/ps4dev-tips-01/" class="article-date">
-  	<time datetime="2016-02-13T12:30:33.000Z" itemprop="datePublished">2016-02-13</time>
+      <a href="/2017/03/03/ps4dev-tips-01/" class="article-date">
+  	<time datetime="2017-03-03T02:43:33.000Z" itemprop="datePublished">2017-03-03</time>
 </a>
     </div>
   
@@ -229,8 +229,8 @@ Edit-Project Settings-">
 <h2 id="设置头显追踪">设置头显追踪</h2><ul>
 <li>设置Main Camera的Target Eye为Both<br>至此已经可以实现头显的追踪。</li>
 </ul>
-<h2 id="DualShock4/Move_Controller等设备的输入">DualShock4/Move Controller等设备的输入</h2><h3 id="定位追踪">定位追踪</h3><ul>
-<li><p>新建空物体-添加TrackedPlayStationDevices组件</p>
+<h2 id="DualShock4/Move_Controller等设备的输入">DualShock4/Move Controller等设备的输入</h2><h3 id="位置追踪">位置追踪</h3><ul>
+<li><p>新建空物体-添加TrackedPlayStationDevices组件<br>其实更推荐把示例里已经配置好的组件抠出来用。</p>
 </li>
 <li><p>组件设置<br>Trackable Devices : 选择需要追踪的设备类型<br>Transform : 追踪物体<br>Light Renderer : 发亮部位<br>Tracking Type : Absolute 绝对/Relative 相对<br>Tracker Usage Type : Default 默认/Optimized For Hmd User 对头显玩家优化  </p>
 </li>
@@ -238,7 +238,7 @@ Edit-Project Settings-">
 <h3 id="DualShock4的按键">DualShock4的按键</h3><p>安装了PS4的平台的Editor插件之后(UnitySetup-Playstation-4-Support-for-Editor)，在Unity编辑器中会出现Help-Unity Manual PS4Player，就是PS4的文档。里面有具体的DualShcok4的按键输入说明。<br>DualShock4是兼容Unity自己的Input系统的。</p>
 <h3 id="Move控制器的按键">Move控制器的按键</h3><p>对于Move的按键输入则在文档中没找到，以下是查询论坛后找到的方法：  </p>
 <p>首先引入PS4的名字空间<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">using UnityEngine.PS4;&#10;using UnityEngine.PS4.VR;</span><br></pre></td></tr></table></figure></p>
-<p>然后在Update中编写…<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void Update()&#10;&#123;&#10;    int moveIndex = !isSecondaryController ? 0 : 1;&#10;    var activeButtons = PS4Input.MoveGetButtons(0, moveIndex);&#10;    //&#25203;&#26426;&#10;    bool triggerHolding = (activeButtons &#38; (int)Buttons.Trigger) != 0;&#10;    //&#21449;&#10;    bool crossHolding = (activeButtons &#38; (int)Buttons.Cross) != 0;&#10;    //&#22280;&#10;    bool circleHolding = (activeButtons &#38; (int)Buttons.Circle) != 0;&#10;    //&#19977;&#35282;&#10;    bool triangleHolding = (activeButtons &#38; (int)Buttons.Triangle) != 0;&#10;    //&#26041;&#22359;&#10;    bool squareHolding = (activeButtons &#38; (int)Buttons.Square) != 0;&#10;    //...&#10;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后在Update中编写…<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[SerializeField]&#10;bool isSecondaryController;&#10;&#10;void Update()&#10;&#123;&#10;    int moveIndex = !isSecondaryController ? 0 : 1;&#10;    var activeButtons = PS4Input.MoveGetButtons(0, moveIndex);&#10;    //&#25203;&#26426;&#10;    bool triggerHolding = (activeButtons &#38; (int)Buttons.Trigger) != 0;&#10;    //&#21449;&#10;    bool crossHolding = (activeButtons &#38; (int)Buttons.Cross) != 0;&#10;    //&#22280;&#10;    bool circleHolding = (activeButtons &#38; (int)Buttons.Circle) != 0;&#10;    //&#19977;&#35282;&#10;    bool triangleHolding = (activeButtons &#38; (int)Buttons.Triangle) != 0;&#10;    //&#26041;&#22359;&#10;    bool squareHolding = (activeButtons &#38; (int)Buttons.Square) != 0;&#10;    //...&#10;&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -248,18 +248,9 @@ Edit-Project Settings-">
     
 <nav id="article-nav">
   
-    <a href="/2016/02/13/unity-tips-input/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Unity的输入实现
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/02/12/unity-tips-shader/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Unity Shader笔记</div>
+    <a href="/2016/06/08/three-match-game-tips/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">三消游戏开发笔记</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -288,7 +279,7 @@ Edit-Project Settings-">
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="ps4dev-tips-01" data-title="给PSVR做开发-Part1" data-url="http://yoursite.com/2016/02/13/ps4dev-tips-01/"></div>
+	<div class="ds-thread" data-thread-key="ps4dev-tips-01" data-title="给PSVR做开发-Part1" data-url="http://yoursite.com/2017/03/03/ps4dev-tips-01/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
