@@ -180,32 +180,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-<h2 id="环境">环境</h2><ul>
-<li>安装合适版本的Unity</li>
-<li>安装相应版本的UnitySetup-Playstation-4-Support-for-Editor  </li>
-<li>下载各类Unity使用的PS4 Plugins（包括PSVR）</li>
-</ul>
-<p>以上都可以从scedev的Unity论坛找到。</p>
-<h2 id="打开一个项目">打开一个项目</h2><ul>
-<li>File-Build Settings-Switch Platform将项目切换到PS4</li>
-<li>Edit-Project Settings-Player-Virtual Readlity Supported-添加PlayStation VR</li>
-<li>导入[PS4 Samples]PlayStationVR.unitypackage</li>
-</ul>
-<h2 id="设置头显追踪">设置头显追踪</h2><ul>
-<li>设置Main Camera的Target Eye为Both<br>至此已经可以实现头显的追踪。</li>
-</ul>
-<h2 id="DualShock4/Move_Controller等设备的输入">DualShock4/Move Controller等设备的输入</h2><h3 id="位置追踪">位置追踪</h3><ul>
-<li><p>新建空物体-添加TrackedPlayStationDevices组件<br>其实更推荐把示例里已经配置好的组件抠出来用。</p>
-</li>
-<li><p>组件设置<br>Trackable Devices : 选择需要追踪的设备类型<br>Transform : 追踪物体<br>Light Renderer : 发亮部位<br>Tracking Type : Absolute 绝对/Relative 相对<br>Tracker Usage Type : Default 默认/Optimized For Hmd User 对头显玩家优化  </p>
-</li>
-</ul>
-<h3 id="DualShock4的按键">DualShock4的按键</h3><p>安装了PS4的平台的Editor插件之后(UnitySetup-Playstation-4-Support-for-Editor)，在Unity编辑器中会出现Help-Unity Manual PS4Player，就是PS4的文档。里面有具体的DualShcok4的按键输入说明。<br>DualShock4是兼容Unity自己的Input系统的。</p>
-<h3 id="Move控制器的按键">Move控制器的按键</h3><p>对于Move的按键输入则在文档中没找到，以下是查询论坛后找到的方法：  </p>
-<p>首先引入PS4的名字空间<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">using UnityEngine.PS4;&#10;using UnityEngine.PS4.VR;</span><br></pre></td></tr></table></figure></p>
-<p>然后在Update中编写…<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[SerializeField]&#10;bool isSecondaryController;&#10;&#10;void Update()&#10;&#123;&#10;    int moveIndex = !isSecondaryController ? 0 : 1;&#10;    var activeButtons = PS4Input.MoveGetButtons(0, moveIndex);&#10;    //&#25203;&#26426;&#10;    bool triggerHolding = (activeButtons &#38; (int)Buttons.Trigger) != 0;&#10;    //&#21449;&#10;    bool crossHolding = (activeButtons &#38; (int)Buttons.Cross) != 0;&#10;    //&#22280;&#10;    bool circleHolding = (activeButtons &#38; (int)Buttons.Circle) != 0;&#10;    //&#19977;&#35282;&#10;    bool triangleHolding = (activeButtons &#38; (int)Buttons.Triangle) != 0;&#10;    //&#26041;&#22359;&#10;    bool squareHolding = (activeButtons &#38; (int)Buttons.Square) != 0;&#10;    //...&#10;&#125;</span><br></pre></td></tr></table></figure></p>
-
+        <p>有幸接触到了PS4的开发…然而…<br>
       
     </div>
     
@@ -218,6 +193,10 @@
 
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2017/03/03/ps4dev-tips-01/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>

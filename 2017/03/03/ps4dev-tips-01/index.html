@@ -5,40 +5,16 @@
   
   <title>给PSVR做开发-Part1 | 石膏实验室</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="环境
-安装合适版本的Unity
-安装相应版本的UnitySetup-Playstation-4-Support-for-Editor  
-下载各类Unity使用的PS4 Plugins（包括PSVR）
-
-以上都可以从scedev的Unity论坛找到。
-打开一个项目
-File-Build Settings-Switch Platform将项目切换到PS4
-Edit-Project Settings-">
+  <meta name="description" content="有幸接触到了PS4的开发…然而…">
 <meta property="og:type" content="article">
 <meta property="og:title" content="给PSVR做开发-Part1">
 <meta property="og:url" content="http://yoursite.com/2017/03/03/ps4dev-tips-01/index.html">
 <meta property="og:site_name" content="石膏实验室">
-<meta property="og:description" content="环境
-安装合适版本的Unity
-安装相应版本的UnitySetup-Playstation-4-Support-for-Editor  
-下载各类Unity使用的PS4 Plugins（包括PSVR）
-
-以上都可以从scedev的Unity论坛找到。
-打开一个项目
-File-Build Settings-Switch Platform将项目切换到PS4
-Edit-Project Settings-">
-<meta property="og:updated_time" content="2017-03-03T02:52:32.000Z">
+<meta property="og:description" content="有幸接触到了PS4的开发…然而…">
+<meta property="og:updated_time" content="2017-03-03T02:55:10.888Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="给PSVR做开发-Part1">
-<meta name="twitter:description" content="环境
-安装合适版本的Unity
-安装相应版本的UnitySetup-Playstation-4-Support-for-Editor  
-下载各类Unity使用的PS4 Plugins（包括PSVR）
-
-以上都可以从scedev的Unity论坛找到。
-打开一个项目
-File-Build Settings-Switch Platform将项目切换到PS4
-Edit-Project Settings-">
+<meta name="twitter:description" content="有幸接触到了PS4的开发…然而…">
   
     <link rel="alternative" href="/atom.xml" title="石膏实验室" type="application/atom+xml">
   
@@ -214,7 +190,8 @@ Edit-Project Settings-">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
+        <p>有幸接触到了PS4的开发…然而…<br><a id="more"></a></p>
+<p>我是软粉。</p>
 <h2 id="环境">环境</h2><ul>
 <li>安装合适版本的Unity</li>
 <li>安装相应版本的UnitySetup-Playstation-4-Support-for-Editor  </li>
@@ -237,8 +214,10 @@ Edit-Project Settings-">
 </ul>
 <h3 id="DualShock4的按键">DualShock4的按键</h3><p>安装了PS4的平台的Editor插件之后(UnitySetup-Playstation-4-Support-for-Editor)，在Unity编辑器中会出现Help-Unity Manual PS4Player，就是PS4的文档。里面有具体的DualShcok4的按键输入说明。<br>DualShock4是兼容Unity自己的Input系统的。</p>
 <h3 id="Move控制器的按键">Move控制器的按键</h3><p>对于Move的按键输入则在文档中没找到，以下是查询论坛后找到的方法：  </p>
-<p>首先引入PS4的名字空间<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">using UnityEngine.PS4;&#10;using UnityEngine.PS4.VR;</span><br></pre></td></tr></table></figure></p>
-<p>然后在Update中编写…<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[SerializeField]&#10;bool isSecondaryController;&#10;&#10;void Update()&#10;&#123;&#10;    int moveIndex = !isSecondaryController ? 0 : 1;&#10;    var activeButtons = PS4Input.MoveGetButtons(0, moveIndex);&#10;    //&#25203;&#26426;&#10;    bool triggerHolding = (activeButtons &#38; (int)Buttons.Trigger) != 0;&#10;    //&#21449;&#10;    bool crossHolding = (activeButtons &#38; (int)Buttons.Cross) != 0;&#10;    //&#22280;&#10;    bool circleHolding = (activeButtons &#38; (int)Buttons.Circle) != 0;&#10;    //&#19977;&#35282;&#10;    bool triangleHolding = (activeButtons &#38; (int)Buttons.Triangle) != 0;&#10;    //&#26041;&#22359;&#10;    bool squareHolding = (activeButtons &#38; (int)Buttons.Square) != 0;&#10;    //...&#10;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>首先引入PS4的名字空间</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">using</span> <span class="tag">UnityEngine</span><span class="class">.PS4</span>;</span><br><span class="line"><span class="tag">using</span> <span class="tag">UnityEngine</span><span class="class">.PS4</span><span class="class">.VR</span>;</span><br></pre></td></tr></table></figure>
+<p>然后在Update中编写…</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[SerializeField]</span><br><span class="line"><span class="keyword">bool</span> isSecondaryController;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Update</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> moveIndex = !isSecondaryController ? <span class="number">0</span> : <span class="number">1</span>;</span><br><span class="line">    var activeButtons = PS4Input.MoveGetButtons(<span class="number">0</span>, moveIndex);</span><br><span class="line">    <span class="comment">//扳机</span></span><br><span class="line">    <span class="keyword">bool</span> triggerHolding = (activeButtons &amp; (<span class="keyword">int</span>)Buttons.Trigger) != <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//叉</span></span><br><span class="line">    <span class="keyword">bool</span> crossHolding = (activeButtons &amp; (<span class="keyword">int</span>)Buttons.Cross) != <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//圈</span></span><br><span class="line">    <span class="keyword">bool</span> circleHolding = (activeButtons &amp; (<span class="keyword">int</span>)Buttons.Circle) != <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//三角</span></span><br><span class="line">    <span class="keyword">bool</span> triangleHolding = (activeButtons &amp; (<span class="keyword">int</span>)Buttons.Triangle) != <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//方块</span></span><br><span class="line">    <span class="keyword">bool</span> squareHolding = (activeButtons &amp; (<span class="keyword">int</span>)Buttons.Square) != <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
