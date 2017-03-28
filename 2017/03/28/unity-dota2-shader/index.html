@@ -11,9 +11,9 @@
 <meta property="og:url" content="http://yoursite.com/2017/03/28/unity-dota2-shader/index.html">
 <meta property="og:site_name" content="石膏实验室">
 <meta property="og:description" content="最近需求一个在人物模型低面数下也能达到良好渲染效果的办法，Dota2是一个不错的参考，所以从贴图着手研究了一下Dota2的着色器，使用Surface Shader进行复刻，同时兼容Unity的PBS管线。">
-<meta property="og:image" content="http://yoursite.com/unity-dota2-shader/Ogre-Dota2-Screnshot.png">
-<meta property="og:image" content="http://yoursite.com/unity-dota2-shader/Ogre_Unity_Preview.png">
-<meta property="og:image" content="http://yoursite.com/unity-dota2-shader/Ogre_GifPreview.gif">
+<meta property="og:image" content="http://yoursite.com/image/unity-dota2-shader/Ogre-Dota2-Screnshot.png">
+<meta property="og:image" content="http://yoursite.com/image/unity-dota2-shader/Ogre_Unity_Preview.png">
+<meta property="og:image" content="http://yoursite.com/image/unity-dota2-shader/Ogre_GifPreview.gif">
 <meta property="og:image" content="http://yoursite.com/image/unity-dota2-shader/Tex_Color.png">
 <meta property="og:image" content="http://yoursite.com/image/unity-dota2-shader/Tex_TintByBaseMask.png">
 <meta property="og:image" content="http://yoursite.com/image/unity-dota2-shader/Tex_CubeMap.png">
@@ -28,7 +28,7 @@
 <meta property="og:image" content="http://yoursite.com/image/unity-dota2-shader/Tex_FresnelWarpColor.png">
 <meta property="og:image" content="http://yoursite.com/image/unity-dota2-shader/Tex_FresnelWarpRim.png">
 <meta property="og:image" content="http://yoursite.com/image/unity-dota2-shader/Tex_FresnelWarpSpec.png">
-<meta property="og:updated_time" content="2017-03-28T08:00:45.000Z">
+<meta property="og:updated_time" content="2017-03-28T08:01:39.028Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在Unity中复刻基于PBS的Dota2着色器">
 <meta name="twitter:description" content="最近需求一个在人物模型低面数下也能达到良好渲染效果的办法，Dota2是一个不错的参考，所以从贴图着手研究了一下Dota2的着色器，使用Surface Shader进行复刻，同时兼容Unity的PBS管线。">
@@ -209,8 +209,8 @@
       
         <p>最近需求一个在人物模型低面数下也能达到良好渲染效果的办法，Dota2是一个不错的参考，所以从贴图着手研究了一下Dota2的着色器，使用Surface Shader进行复刻，同时兼容Unity的PBS管线。<br><a id="more"></a><br>Dota2的所有人物模型（包括贴图）可以在Dota2的<a href="http://www.dota2.com/workshop/requirements/" target="_blank" rel="external">WorkShop</a>中下载到。  </p>
 <h1 id="效果展示">效果展示</h1><p>以食人魔法师(Ogre)为例。  </p>
-<p>Dota2中的原版效果:<br><img src="/unity-dota2-shader/Ogre-Dota2-Screnshot.png" alt="dota2-ogre">  </p>
-<p>Unity中复刻的效果：<br><img src="/unity-dota2-shader/Ogre_Unity_Preview.png" alt="unity-ogre"><br><img src="/unity-dota2-shader/Ogre_GifPreview.gif" alt="unity-ogre-gif">  </p>
+<p>Dota2中的原版效果:<br><img src="/image/unity-dota2-shader/Ogre-Dota2-Screnshot.png" alt="dota2-ogre">  </p>
+<p>Unity中复刻的效果：<br><img src="/image/unity-dota2-shader/Ogre_Unity_Preview.png" alt="unity-ogre"><br><img src="/image/unity-dota2-shader/Ogre_GifPreview.gif" alt="unity-ogre-gif">  </p>
 <p>现在除了CubeMap、FresnelWarpColor、FresnelWarpRim、FresnelWarpSpec这三张贴图没有实现外，其余都已经实现。</p>
 <h1 id="分析">分析</h1><p>Dota2的原版材质使用了14张贴图，都为tga格式：<br><em>有一个奇怪的问题需要注意，下载下来的模型贴图中Color、Normal贴图是没问题的，但是其他贴图是垂直翻转过的，不能直接贴上，我是手动在PS中翻转回去再贴就没有问题，原因不明。</em>  </p>
 <ul>
