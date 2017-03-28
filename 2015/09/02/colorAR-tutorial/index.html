@@ -15,7 +15,7 @@
 <meta property="og:description" content="前言注意啦！本涂色代码在Vuforia5以上版本失效了！
 　　上学期在公司实习接触到了AR，使用的Metaio的SDK，这家公司最近悄悄地被苹果收购了。然后可以看到最近各类AR产品出现，都显示着一种趋势。不过说实话，现在的”AR”局限依然很大，现有AR产品大多都是面向低龄的儿童产品，同时也依赖手机设备和固定的标记图。   
 　　近来出现的涂色AR是一个不错的新的玩法。功能依赖Shader和代码一起">
-<meta property="og:image" content="http://yoursite.com/2015/09/02/colorAR-tutorial/colorar-screenshot.jpg">
+<meta property="og:image" content="http://yoursite.com/image/colorar-screenshot.jpg">
 <meta property="og:updated_time" content="2016-07-24T08:18:04.321Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Unity涂色AR教程（一）">
@@ -237,7 +237,7 @@
 <li>Android（一般是5.0以上）如果遇到无法安装，在Player Setting的Other Setting中Install Loacation改为Automatic</li>
 </ul>
 <p>标记图为ColorAR-Assets/Example/Cube-Target，你可以用PS等软件打开并随意在方体表面上涂写，效果应该是这样的:   </p>
-<p><img src="/2015/09/02/colorAR-tutorial/colorar-screenshot.jpg" alt="Screen-Shot"></p>
+<p><img src="/image/colorar-screenshot.jpg" alt="Screen-Shot"></p>
 <h2 id="如何用在自己的项目上">如何用在自己的项目上</h2><p>　　实现原理之前已经写了，相应的Shader为CameraTargetPatchLighted，你需要新建一个Material并使用这个Shader，将你需要使用拾色贴图的模型换上这个Material。相应的脚本为CameraImageAccess，同样也要绑到之前的模型上。    </p>
 <p>　　此外，新建一个Quad，使用CatchUV这个材质，Quad拖到ImageTarget下成为子物体，然后调整Quad的Scale，<strong>使其尺寸完全贴合ImageTarget标记图</strong>。然后把这个Quad拖给之前模型挂上的CameraImageAccess的QuadCatchUV。</p>
 <p>　　之后你需要调用CameraImageAccess的UpdateTexture()才能更新贴图，一般的逻辑自然是在ImageTarget的TrackableEvent中的OnTrackingFound()里调用。如果你不熟悉，可以直接使用我写好的ExtendTrackableEvent，挂在ImageTarget上。这个脚本会在识别到图片之后默认延时1秒钟再拾取相机画面，并有UI指示，原因是手机在移动过程中识别到之后立即拾取画面很容易导致模糊，出来的贴图自然也是模糊的，有延时可以让画面更稳定。延时可以在脚本的Inspector里修改，不要忘记给Loading Ring赋实例，在Prefab文件夹里有我预制的一个Canvas Loading，拖到ImageTarget下，适当缩放，把Canvas Loading子物体的Ring拖给脚本的Loading Ring。这样你的项目应该就可以实现Example中的效果了。   </p>
