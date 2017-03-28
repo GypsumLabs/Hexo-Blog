@@ -28,7 +28,7 @@
 <meta property="og:image" content="http://yoursite.com/image/unity-dota2-shader/Tex_FresnelWarpColor.png">
 <meta property="og:image" content="http://yoursite.com/image/unity-dota2-shader/Tex_FresnelWarpRim.png">
 <meta property="og:image" content="http://yoursite.com/image/unity-dota2-shader/Tex_FresnelWarpSpec.png">
-<meta property="og:updated_time" content="2017-03-28T08:01:39.028Z">
+<meta property="og:updated_time" content="2017-03-28T08:04:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在Unity中复刻基于PBS的Dota2着色器">
 <meta name="twitter:description" content="最近需求一个在人物模型低面数下也能达到良好渲染效果的办法，Dota2是一个不错的参考，所以从贴图着手研究了一下Dota2的着色器，使用Surface Shader进行复刻，同时兼容Unity的PBS管线。">
@@ -226,7 +226,7 @@
 <h2 id="SelfIllumMask(Grey)">SelfIllumMask(Grey)</h2><p><img src="/image/unity-dota2-shader/Tex_SelfIllumMask.png" alt="SelfIllumMask"><br>自发光遮罩。Dota2的自发光做法不同于Unity原生，自发光的颜色信息取自Color贴图，而这张帖图只是控制自发光强弱的。</p>
 <h2 id="SpecularMask(Grey)">SpecularMask(Grey)</h2><p><img src="/image/unity-dota2-shader/Tex_SpecularMask.png" alt="SpecularMask"><br>高光遮罩。对应到Smoothness上，虽然效果不完全一样。和下面的高光指数配合使用。</p>
 <h2 id="SpecularExponent(Grey)">SpecularExponent(Grey)</h2><p><img src="/image/unity-dota2-shader/Tex_SpecularExponent.png" alt="SpecularExponent"><br>高光指数。和高光遮罩结合使用，我的做法是ldexp(SpecularMask,SpecularExponent)，看起来效果也没什么问题…应该是这样吧。</p>
-<h2 id="Translucency(Grey)">Translucency(Grey)</h2><p><img src="/image/unity-dota2-shader/Tex_Translucency.png" alt="Translucency"><br>透明性。我是做成Cut-out的效果，使用Cutoff值控制抠图程度。 </p>
+<h2 id="Translucency(Grey)">Translucency(Grey)</h2><p><img src="/image/unity-dota2-shader/Tex_Translucency.png" alt="Translucency"><br>透明性。我是做成Cut-out的效果，使用Cutoff值控制抠图程度。这张也是披肩的贴图，这个模型只有披肩用到了Cutout。  </p>
 <h2 id="DiffuseWarp">DiffuseWarp</h2><p><img src="/image/unity-dota2-shader/Tex_DiffuseWarp.png" alt="DiffuseWarp"><br>漫反射映射。应该是控制明暗渐变的，但是还没找到在PBS光照函数中修改的办法，未实现。</p>
 <h2 id="FresnelWarpColor">FresnelWarpColor</h2><p><img src="/image/unity-dota2-shader/Tex_FresnelWarpColor.png" alt="FresnelWarpColor"><br>菲涅尔颜色映射。未实现。</p>
 <h2 id="FresnelWarpRim">FresnelWarpRim</h2><p><img src="/image/unity-dota2-shader/Tex_FresnelWarpRim.png" alt="FresnelWarpRim"><br>菲涅尔内发光映射。未实现。</p>
