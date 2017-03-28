@@ -27,8 +27,8 @@ CameraTargetPatchLighted着色器的光照模型调整
 实现了判断整张识别图进入画面再进行拾色的功能，当然这个功能市面上已经有了，我会说一下我实现的思路
 
 说一下前一篇提到的遮挡效果">
-<meta property="og:image" content="http://yoursite.com/\image\colorAR\1.1-01.jpg">
-<meta property="og:image" content="http://yoursite.com/\image\colorAR\1.1-02.jpg">
+<meta property="og:image" content="http://yoursite.com/2015/09/09/colorAR-tutorial-update1/">
+<meta property="og:image" content="http://yoursite.com/2015/09/09/colorAR-tutorial-update1/">
 <meta property="og:updated_time" content="2016-07-24T08:18:21.035Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Unity涂色AR教程（二）">
@@ -125,7 +125,7 @@ CameraTargetPatchLighted着色器的光照模型调整
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/AR/" style="font-size: 15px;">AR</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/PS4/" style="font-size: 10px;">PS4</a> <a href="/tags/PSVR/" style="font-size: 10px;">PSVR</a> <a href="/tags/Unity/" style="font-size: 20px;">Unity</a> <a href="/tags/树莓派/" style="font-size: 10px;">树莓派</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+						<a href="/tags/AR/" style="font-size: 15px;">AR</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/PS4/" style="font-size: 10px;">PS4</a> <a href="/tags/PSVR/" style="font-size: 10px;">PSVR</a> <a href="/tags/Shader/" style="font-size: 10px;">Shader</a> <a href="/tags/Unity/" style="font-size: 20px;">Unity</a> <a href="/tags/树莓派/" style="font-size: 10px;">树莓派</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
 					</div>
 				</section>
 				
@@ -234,11 +234,11 @@ CameraTargetPatchLighted着色器的光照模型调整
 <p>提取码：km0l</p>
 <h2 id="判断整张识别图进入画面后再进行拾色">判断整张识别图进入画面后再进行拾色</h2><p>　　应项目要求，要把DEMO做的好看一点，所以想办法实现了这个功能。旧版中的方法其实不是个好办法，因为即使等待1秒仍有可能没把标记图拍全，导致获取的贴图不全，模型会有一坨黑色。所以我把等待功能的代码都删除了，换成了现在的功能。你可以打开Example中的Scene导出手机查看效果。</p>
 <h3 id="实现的思路">实现的思路</h3><p>　　Unity有一个回调函数OnBecameVisible()会在物体被任意Camera拍摄到时（即使被拍摄到一部分），物体一进入摄像机，就会被调用。另一个OnBecameInvisible()会在移出摄像机时被调用。当然这两个直接用都不能实现<strong>判断物体整个都处在画面中</strong>的效果。我的办法是，因为标记图总是个矩形，在矩形的四个角上放置四个点，判断这四个角是否存在于画面当中，如果是则整个矩形就一定处于画面中，此时再拾取贴图就可以保证贴图的完整了。</p>
-<h4 id="四个角">四个角</h4><p><img src="\image\colorAR\1.1-01.jpg" alt="四个点">   </p>
+<h4 id="四个角">四个角</h4><p><img src="/2015/09/09/colorAR-tutorial-update1/" alt="四个点">   </p>
 <ul>
 <li>因为OnBecameVisible()要起作用必须要物体带有Renderer，所以这四个点不能是空的GameObject，我放的其实是四个Cube，Scale被设置为0所以不可见。不要忘了挂上Check Point脚本。</li>
 </ul>
-<h4 id="ImageTarget的设置">ImageTarget的设置</h4><p><img src="\image\colorAR\1.1-02.jpg" alt="脚本设置">  </p>
+<h4 id="ImageTarget的设置">ImageTarget的设置</h4><p><img src="/2015/09/09/colorAR-tutorial-update1/" alt="脚本设置">  </p>
 <ul>
 <li>依然是在ImageTarget下挂上ExtendTrackableEvent，代码改了所以参数有变。   </li>
 <li>Check Cover是一块半透明的板，它的尺寸应该完全贴合在标记图上（和QuadCatchUV一样），作用是在玩家调整位置时有一个视觉提示。</li>

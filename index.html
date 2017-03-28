@@ -98,7 +98,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/AR/" style="font-size: 15px;">AR</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/PS4/" style="font-size: 10px;">PS4</a> <a href="/tags/PSVR/" style="font-size: 10px;">PSVR</a> <a href="/tags/Unity/" style="font-size: 20px;">Unity</a> <a href="/tags/树莓派/" style="font-size: 10px;">树莓派</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+						<a href="/tags/AR/" style="font-size: 15px;">AR</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/PS4/" style="font-size: 10px;">PS4</a> <a href="/tags/PSVR/" style="font-size: 10px;">PSVR</a> <a href="/tags/Shader/" style="font-size: 10px;">Shader</a> <a href="/tags/Unity/" style="font-size: 20px;">Unity</a> <a href="/tags/树莓派/" style="font-size: 10px;">树莓派</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
 					</div>
 				</section>
 				
@@ -154,6 +154,64 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-unity-dota2-shader" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/28/unity-dota2-shader/" class="article-date">
+  	<time datetime="2017-03-28T03:52:53.000Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/28/unity-dota2-shader/">在Unity中复刻基于PBS的Dota2着色器</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近需求一个在人物模型低面数下也能达到良好渲染效果的办法，Dota2是一个不错的参考，所以从贴图着手研究了一下Dota2的着色器，使用Surface Shader进行复刻，同时兼容Unity的PBS管线。<br></p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shader/">Shader</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unity/">Unity</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/03/28/unity-dota2-shader/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-ps4dev-tips-01" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -180,7 +238,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>有幸接触到了PS4的开发…然而…<br>
+        <p>有幸接触到了PS4的开发…然而…<br></p>
       
     </div>
     
@@ -196,60 +254,6 @@
       
         <p class="article-more-link">
           <a  href="/2017/03/03/ps4dev-tips-01/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-three-match-game-tips" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/08/three-match-game-tips/" class="article-date">
-  	<time datetime="2016-06-08T02:14:47.000Z" itemprop="datePublished">2016-06-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/08/three-match-game-tips/">三消游戏开发笔记</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="前言">前言</h1><p>出于一些原因，最近需要开发一款三消游戏。很多东西粗想一下觉得很简单，但是真的写起代码还是挺复杂了。这个三消游戏也是，在着手开始写代码前思考的过程中碰到的一些问题，结合网上查阅到的一些思路并改进，我在此记录下具体每一个环节实现的方法。</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/06/08/three-match-game-tips/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -350,9 +354,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Unity_Shader">Unity Shader</h1><p><em>本文主要针对Surface Shader</em>  </p>
-<p>首先需要确定一点，在Unity5之后的版本中，光照系统采用了新的Enlighten引擎，加入了时髦的GI等特性，随之带来的也是符合PBR(Physically Based Rendering)管线的Standard材质。可以说，如果想要获得最写实的渲染效果，使用Standard材质就可以了，因为Standard几乎就是Unity可以达到的写实渲染效果的上限，除非是专业的图形工程师，没必要为了这个去折腾Shader。<br>作为一个初级的使用者，写一些Surface Shader的目的应该是为了获得一些特殊的、非真实的、或是取巧的/障眼法的效果。</p>
-<p>待续待续…</p>
+        <h1 id="Unity_Shader">Unity Shader</h1><p><em>Surface Shader</em>  </p>
+<p>在Unity5之后的版本中，光照系统采用了新的Enlighten引擎，加入了时髦的GI等等，新增符合PBS(Physically-Based Shading)管线的Standard材质。可以说，如果一般的情况下想要在Unity5里获得最写实的渲染效果，使用Standard材质就可以了。<br>作为一个初级的使用者，自己写一些Shader</p>
 
       
     </div>
@@ -527,8 +530,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/image/raspberry/raspberry-photo.jpg" alt="raspberry"><br>买了一只树莓派。<br>最终目的是想用来建站，不过Linux之类的还是第一次接触，于是从头学起，在此做一些笔记。</p>
-<p>树莓派型号：Raspberry Pi 2 model B<br>操作的平台：Windows 10<br>
+        <p><img src="/2015/09/18/raspberry-tips-01/raspberry/raspberry-photo.jpg" alt="raspberry"><br>买了一只树莓派。<br>最终目的是想用来建站，不过Linux之类的还是第一次接触，于是从头学起，在此做一些笔记。</p>
+<p>树莓派型号：Raspberry Pi 2 model B<br>操作的平台：Windows 10<br></p>
       
     </div>
     
@@ -594,7 +597,7 @@
 </li>
 <li><p>实现了<strong>判断整张识别图进入画面再进行拾色</strong>的功能，当然这个功能市面上已经有了，我会说一下我实现的思路</p>
 </li>
-<li><p>说一下前一篇提到的<strong>遮挡</strong>效果</p>
+<li><p>说一下前一篇提到的<strong>遮挡</strong>效果</p></li></ul>
       
     </div>
     

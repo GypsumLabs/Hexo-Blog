@@ -5,19 +5,19 @@
   
   <title>Unity Shader笔记 | 石膏实验室</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Unity Shader本文主要针对Surface Shader  
-首先需要确定一点，在Unity5之后的版本中，光照系统采用了新的Enlighten引擎，加入了时髦的GI等特性，随之带来的也是符合PBR(Physically Based Rendering)管线的Standard材质。可以说，如果想要获得最写实的渲染效果，使用Standard材质就可以了，因为Standard几乎就是Unity">
+  <meta name="description" content="Unity ShaderSurface Shader  
+在Unity5之后的版本中，光照系统采用了新的Enlighten引擎，加入了时髦的GI等等，新增符合PBS(Physically-Based Shading)管线的Standard材质。可以说，如果一般的情况下想要在Unity5里获得最写实的渲染效果，使用Standard材质就可以了。作为一个初级的使用者，自己写一些Shader">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Unity Shader笔记">
 <meta property="og:url" content="http://yoursite.com/2016/02/12/unity-tips-shader/index.html">
 <meta property="og:site_name" content="石膏实验室">
-<meta property="og:description" content="Unity Shader本文主要针对Surface Shader  
-首先需要确定一点，在Unity5之后的版本中，光照系统采用了新的Enlighten引擎，加入了时髦的GI等特性，随之带来的也是符合PBR(Physically Based Rendering)管线的Standard材质。可以说，如果想要获得最写实的渲染效果，使用Standard材质就可以了，因为Standard几乎就是Unity">
-<meta property="og:updated_time" content="2016-07-24T08:57:51.726Z">
+<meta property="og:description" content="Unity ShaderSurface Shader  
+在Unity5之后的版本中，光照系统采用了新的Enlighten引擎，加入了时髦的GI等等，新增符合PBS(Physically-Based Shading)管线的Standard材质。可以说，如果一般的情况下想要在Unity5里获得最写实的渲染效果，使用Standard材质就可以了。作为一个初级的使用者，自己写一些Shader">
+<meta property="og:updated_time" content="2017-03-05T06:53:41.138Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Unity Shader笔记">
-<meta name="twitter:description" content="Unity Shader本文主要针对Surface Shader  
-首先需要确定一点，在Unity5之后的版本中，光照系统采用了新的Enlighten引擎，加入了时髦的GI等特性，随之带来的也是符合PBR(Physically Based Rendering)管线的Standard材质。可以说，如果想要获得最写实的渲染效果，使用Standard材质就可以了，因为Standard几乎就是Unity">
+<meta name="twitter:description" content="Unity ShaderSurface Shader  
+在Unity5之后的版本中，光照系统采用了新的Enlighten引擎，加入了时髦的GI等等，新增符合PBS(Physically-Based Shading)管线的Standard材质。可以说，如果一般的情况下想要在Unity5里获得最写实的渲染效果，使用Standard材质就可以了。作为一个初级的使用者，自己写一些Shader">
   
     <link rel="alternative" href="/atom.xml" title="石膏实验室" type="application/atom+xml">
   
@@ -102,7 +102,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/AR/" style="font-size: 15px;">AR</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/PS4/" style="font-size: 10px;">PS4</a> <a href="/tags/PSVR/" style="font-size: 10px;">PSVR</a> <a href="/tags/Unity/" style="font-size: 20px;">Unity</a> <a href="/tags/树莓派/" style="font-size: 10px;">树莓派</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+						<a href="/tags/AR/" style="font-size: 15px;">AR</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/PS4/" style="font-size: 10px;">PS4</a> <a href="/tags/PSVR/" style="font-size: 10px;">PSVR</a> <a href="/tags/Shader/" style="font-size: 10px;">Shader</a> <a href="/tags/Unity/" style="font-size: 20px;">Unity</a> <a href="/tags/树莓派/" style="font-size: 10px;">树莓派</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
 					</div>
 				</section>
 				
@@ -193,9 +193,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Unity_Shader">Unity Shader</h1><p><em>本文主要针对Surface Shader</em>  </p>
-<p>首先需要确定一点，在Unity5之后的版本中，光照系统采用了新的Enlighten引擎，加入了时髦的GI等特性，随之带来的也是符合PBR(Physically Based Rendering)管线的Standard材质。可以说，如果想要获得最写实的渲染效果，使用Standard材质就可以了，因为Standard几乎就是Unity可以达到的写实渲染效果的上限，除非是专业的图形工程师，没必要为了这个去折腾Shader。<br>作为一个初级的使用者，写一些Surface Shader的目的应该是为了获得一些特殊的、非真实的、或是取巧的/障眼法的效果。</p>
-<p>待续待续…</p>
+        <h1 id="Unity_Shader">Unity Shader</h1><p><em>Surface Shader</em>  </p>
+<p>在Unity5之后的版本中，光照系统采用了新的Enlighten引擎，加入了时髦的GI等等，新增符合PBS(Physically-Based Shading)管线的Standard材质。可以说，如果一般的情况下想要在Unity5里获得最写实的渲染效果，使用Standard材质就可以了。<br>作为一个初级的使用者，自己写一些Shader</p>
 
       
     </div>

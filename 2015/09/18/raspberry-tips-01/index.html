@@ -13,11 +13,11 @@
 <meta property="og:site_name" content="石膏实验室">
 <meta property="og:description" content="买了一只树莓派。最终目的是想用来建站，不过Linux之类的还是第一次接触，于是从头学起，在此做一些笔记。
 树莓派型号：Raspberry Pi 2 model B操作的平台：Windows 10">
-<meta property="og:image" content="http://yoursite.com/image/raspberry/raspberry-photo.jpg">
-<meta property="og:image" content="http://yoursite.com/image/raspberry/putty-connect.jpg">
-<meta property="og:image" content="http://yoursite.com/image/raspberry/putty-login.jpg">
-<meta property="og:image" content="http://yoursite.com/image/raspberry/vnc-viewer-connect.jpg">
-<meta property="og:image" content="http://yoursite.com/image/raspberry/pi-desktop.jpg">
+<meta property="og:image" content="http://yoursite.com/2015/09/18/raspberry-tips-01/raspberry/raspberry-photo.jpg">
+<meta property="og:image" content="http://yoursite.com/2015/09/18/raspberry-tips-01/raspberry/putty-connect.jpg">
+<meta property="og:image" content="http://yoursite.com/2015/09/18/raspberry-tips-01/raspberry/putty-login.jpg">
+<meta property="og:image" content="http://yoursite.com/2015/09/18/raspberry-tips-01/raspberry/vnc-viewer-connect.jpg">
+<meta property="og:image" content="http://yoursite.com/2015/09/18/raspberry-tips-01/raspberry/pi-desktop.jpg">
 <meta property="og:updated_time" content="2015-12-28T08:32:03.220Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="树莓派笔记 - 安装和搭建">
@@ -107,7 +107,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/AR/" style="font-size: 15px;">AR</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/PS4/" style="font-size: 10px;">PS4</a> <a href="/tags/PSVR/" style="font-size: 10px;">PSVR</a> <a href="/tags/Unity/" style="font-size: 20px;">Unity</a> <a href="/tags/树莓派/" style="font-size: 10px;">树莓派</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+						<a href="/tags/AR/" style="font-size: 15px;">AR</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/PS4/" style="font-size: 10px;">PS4</a> <a href="/tags/PSVR/" style="font-size: 10px;">PSVR</a> <a href="/tags/Shader/" style="font-size: 10px;">Shader</a> <a href="/tags/Unity/" style="font-size: 20px;">Unity</a> <a href="/tags/树莓派/" style="font-size: 10px;">树莓派</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
 					</div>
 				</section>
 				
@@ -198,16 +198,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/image/raspberry/raspberry-photo.jpg" alt="raspberry"><br>买了一只树莓派。<br>最终目的是想用来建站，不过Linux之类的还是第一次接触，于是从头学起，在此做一些笔记。</p>
+        <p><img src="/2015/09/18/raspberry-tips-01/raspberry/raspberry-photo.jpg" alt="raspberry"><br>买了一只树莓派。<br>最终目的是想用来建站，不过Linux之类的还是第一次接触，于是从头学起，在此做一些笔记。</p>
 <p>树莓派型号：Raspberry Pi 2 model B<br>操作的平台：Windows 10<br><a id="more"></a></p>
 <h1 id="安装">安装</h1><p>在<a href="https://www.raspberrypi.org" target="_blank" rel="external">树莓派官网</a>可以下载到最新的Raspbian系统，使用<a href="">Win32DiskImager</a>把系统刷入TF卡中。把TF卡装进树莓派后便可以接通电源启动了。  </p>
 <h1 id="连接到树莓派">连接到树莓派</h1><p>使用<a href="">puTTY</a>以ssh方式连接到树莓派。先在路由器设置页中获取到树莓派的IP地址，然后打开puTTY输入IP后连接。<em>可以在路由器中设置一个静态IP给树莓派，之后就不用再查找了</em>  </p>
-<p><img src="/image/raspberry/putty-connect.jpg" alt="putty-connect">  </p>
+<p><img src="/2015/09/18/raspberry-tips-01/raspberry/putty-connect.jpg" alt="putty-connect">  </p>
 <blockquote>
 <p>默认设置即可，修改为树莓派的IP后连接到树莓派。  </p>
 </blockquote>
 <p><strong>接着登陆树莓派</strong>  </p>
-<p><img src="/image/raspberry/putty-login.jpg" alt="putty-login">  </p>
+<p><img src="/2015/09/18/raspberry-tips-01/raspberry/putty-login.jpg" alt="putty-login">  </p>
 <blockquote>
 <p>默认用户名：pi<br>默认密码：raspberry  </p>
 </blockquote>
@@ -230,8 +230,8 @@
 </blockquote>
 <p>关闭<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tightvncserver -kill :<span class="number">1</span></span><br></pre></td></tr></table></figure></p>
 <h1 id="连接到VNC桌面">连接到VNC桌面</h1><p>使用<a href="">VNC Viewer</a>连接到远程桌面。</p>
-<p><img src="/image/raspberry/vnc-viewer-connect.jpg" alt="vncviewer"><br>登录地址输入<strong>IP地址:控制台号码</strong><br>根据上面的自启动文件，控制台号码应该为1。  </p>
-<p><img src="/image/raspberry/pi-desktop.jpg" alt="desktop"><br>如果之前没出现什么问题，此时就可以看到树莓派的桌面了~</p>
+<p><img src="/2015/09/18/raspberry-tips-01/raspberry/vnc-viewer-connect.jpg" alt="vncviewer"><br>登录地址输入<strong>IP地址:控制台号码</strong><br>根据上面的自启动文件，控制台号码应该为1。  </p>
+<p><img src="/2015/09/18/raspberry-tips-01/raspberry/pi-desktop.jpg" alt="desktop"><br>如果之前没出现什么问题，此时就可以看到树莓派的桌面了~</p>
 
       
     </div>
