@@ -5,19 +5,22 @@
   
   <title>Unity Shader笔记 | 石膏实验室</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Unity ShaderSurface Shader  
-在Unity5之后的版本中，光照系统采用了新的Enlighten引擎，加入了时髦的GI等等，新增符合PBS(Physically-Based Shading)管线的Standard材质。可以说，如果一般的情况下想要在Unity5里获得最写实的渲染效果，使用Standard材质就可以了。作为一个初级的使用者，自己写一些Shader">
+  <meta name="description" content="Unity Shader断断续续学习Shader也有一段时间了，写下此篇是想记录学习过程中的一些心得和经验。  
+从Surface Shader开始相信任何学习Unity游戏开发的人都会在开发进行到某个程度时间接或直接接触到Shader这方面的技术的。
+在Unity5之后的版本中，光照系统采用了新的Enlighten引擎，加入了时髦的GI等等，拥有了符合PBS(Physically-Based S">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Unity Shader笔记">
 <meta property="og:url" content="http://yoursite.com/2016/02/12/unity-tips-shader/index.html">
 <meta property="og:site_name" content="石膏实验室">
-<meta property="og:description" content="Unity ShaderSurface Shader  
-在Unity5之后的版本中，光照系统采用了新的Enlighten引擎，加入了时髦的GI等等，新增符合PBS(Physically-Based Shading)管线的Standard材质。可以说，如果一般的情况下想要在Unity5里获得最写实的渲染效果，使用Standard材质就可以了。作为一个初级的使用者，自己写一些Shader">
-<meta property="og:updated_time" content="2017-03-05T06:53:41.138Z">
+<meta property="og:description" content="Unity Shader断断续续学习Shader也有一段时间了，写下此篇是想记录学习过程中的一些心得和经验。  
+从Surface Shader开始相信任何学习Unity游戏开发的人都会在开发进行到某个程度时间接或直接接触到Shader这方面的技术的。
+在Unity5之后的版本中，光照系统采用了新的Enlighten引擎，加入了时髦的GI等等，拥有了符合PBS(Physically-Based S">
+<meta property="og:updated_time" content="2017-03-29T11:42:59.385Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Unity Shader笔记">
-<meta name="twitter:description" content="Unity ShaderSurface Shader  
-在Unity5之后的版本中，光照系统采用了新的Enlighten引擎，加入了时髦的GI等等，新增符合PBS(Physically-Based Shading)管线的Standard材质。可以说，如果一般的情况下想要在Unity5里获得最写实的渲染效果，使用Standard材质就可以了。作为一个初级的使用者，自己写一些Shader">
+<meta name="twitter:description" content="Unity Shader断断续续学习Shader也有一段时间了，写下此篇是想记录学习过程中的一些心得和经验。  
+从Surface Shader开始相信任何学习Unity游戏开发的人都会在开发进行到某个程度时间接或直接接触到Shader这方面的技术的。
+在Unity5之后的版本中，光照系统采用了新的Enlighten引擎，加入了时髦的GI等等，拥有了符合PBS(Physically-Based S">
   
     <link rel="alternative" href="/atom.xml" title="石膏实验室" type="application/atom+xml">
   
@@ -193,8 +196,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Unity_Shader">Unity Shader</h1><p><em>Surface Shader</em>  </p>
-<p>在Unity5之后的版本中，光照系统采用了新的Enlighten引擎，加入了时髦的GI等等，新增符合PBS(Physically-Based Shading)管线的Standard材质。可以说，如果一般的情况下想要在Unity5里获得最写实的渲染效果，使用Standard材质就可以了。<br>作为一个初级的使用者，自己写一些Shader</p>
+        <h2 id="Unity_Shader">Unity Shader</h2><p>断断续续学习Shader也有一段时间了，写下此篇是想记录学习过程中的一些心得和经验。  </p>
+<h4 id="从Surface_Shader开始">从Surface Shader开始</h4><p>相信任何学习Unity游戏开发的人都会在开发进行到某个程度时间接或直接接触到Shader这方面的技术的。</p>
+<p>在Unity5之后的版本中，光照系统采用了新的Enlighten引擎，加入了时髦的GI等等，拥有了符合PBS(Physically-Based Shading)管线的Standard材质。可以说，如果一般的情况下想要在Unity5里获得最写实的渲染效果，使用Standard材质配合Lighting面板就可以了。不过有些时候也需要一些Standard不能实现的效果，比如各种图形Trick等等，此时就需要自行编写Shader来解决问题了。</p>
 
       
     </div>

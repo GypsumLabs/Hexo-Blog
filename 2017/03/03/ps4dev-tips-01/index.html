@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>给PSVR做开发-Part1 | 石膏实验室</title>
+  <title>给PSVR做开发Part1-设备的输入 | 石膏实验室</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="有幸接触到了PS4的开发…然而…">
 <meta property="og:type" content="article">
-<meta property="og:title" content="给PSVR做开发-Part1">
+<meta property="og:title" content="给PSVR做开发Part1-设备的输入">
 <meta property="og:url" content="http://yoursite.com/2017/03/03/ps4dev-tips-01/index.html">
 <meta property="og:site_name" content="石膏实验室">
 <meta property="og:description" content="有幸接触到了PS4的开发…然而…">
-<meta property="og:updated_time" content="2017-03-03T02:55:10.888Z">
+<meta property="og:updated_time" content="2017-03-29T11:32:17.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="给PSVR做开发-Part1">
+<meta name="twitter:title" content="给PSVR做开发Part1-设备的输入">
 <meta name="twitter:description" content="有幸接触到了PS4的开发…然而…">
   
     <link rel="alternative" href="/atom.xml" title="石膏实验室" type="application/atom+xml">
@@ -170,7 +170,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      给PSVR做开发-Part1
+      给PSVR做开发Part1-设备的输入
     </h1>
   
 
@@ -206,14 +206,14 @@
 <h2 id="设置头显追踪">设置头显追踪</h2><ul>
 <li>设置Main Camera的Target Eye为Both<br>至此已经可以实现头显的追踪。</li>
 </ul>
-<h2 id="DualShock4/Move_Controller等设备的输入">DualShock4/Move Controller等设备的输入</h2><h3 id="位置追踪">位置追踪</h3><ul>
+<h2 id="DualShock4/Move_Controller等设备的输入">DualShock4/Move Controller等设备的输入</h2><h4 id="位置追踪">位置追踪</h4><ul>
 <li><p>新建空物体-添加TrackedPlayStationDevices组件<br>其实更推荐把示例里已经配置好的组件抠出来用。</p>
 </li>
 <li><p>组件设置<br>Trackable Devices : 选择需要追踪的设备类型<br>Transform : 追踪物体<br>Light Renderer : 发亮部位<br>Tracking Type : Absolute 绝对/Relative 相对<br>Tracker Usage Type : Default 默认/Optimized For Hmd User 对头显玩家优化  </p>
 </li>
 </ul>
-<h3 id="DualShock4的按键">DualShock4的按键</h3><p>安装了PS4的平台的Editor插件之后(UnitySetup-Playstation-4-Support-for-Editor)，在Unity编辑器中会出现Help-Unity Manual PS4Player，就是PS4的文档。里面有具体的DualShcok4的按键输入说明。<br>DualShock4是兼容Unity自己的Input系统的。</p>
-<h3 id="Move控制器的按键">Move控制器的按键</h3><p>对于Move的按键输入则在文档中没找到，以下是查询论坛后找到的方法：  </p>
+<h4 id="DualShock4的按键">DualShock4的按键</h4><p>安装了PS4的平台的Editor插件之后(UnitySetup-Playstation-4-Support-for-Editor)，在Unity编辑器中会出现Help-Unity Manual PS4Player，就是PS4的文档。里面有具体的DualShcok4的按键输入说明。<br>DualShock4是兼容Unity自己的Input系统的。</p>
+<h4 id="Move控制器的按键">Move控制器的按键</h4><p>对于Move的按键输入则在文档中没找到，以下是查询论坛后找到的方法：  </p>
 <p>首先引入PS4的名字空间</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">using</span> <span class="tag">UnityEngine</span><span class="class">.PS4</span>;</span><br><span class="line"><span class="tag">using</span> <span class="tag">UnityEngine</span><span class="class">.PS4</span><span class="class">.VR</span>;</span><br></pre></td></tr></table></figure>
 <p>然后在Update中编写…</p>
@@ -267,7 +267,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="ps4dev-tips-01" data-title="给PSVR做开发-Part1" data-url="http://yoursite.com/2017/03/03/ps4dev-tips-01/"></div>
+	<div class="ds-thread" data-thread-key="ps4dev-tips-01" data-title="给PSVR做开发Part1-设备的输入" data-url="http://yoursite.com/2017/03/03/ps4dev-tips-01/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
